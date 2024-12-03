@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dduirm5ychoe6"]
 
-[ext_resource type="PackedScene" uid="uid://bi7mpkpr2ekfi" path="res://kitchen1.glb" id="1_k48vf"]
+[ext_resource type="PackedScene" uid="uid://dorl847toranq" path="res://kitchen1.glb" id="1_k48vf"]
 [ext_resource type="PackedScene" uid="uid://b7o15soiogyi1" path="res://hamster.tscn" id="2_1i7vm"]
 [ext_resource type="Script" path="res://hamster.gd" id="3_dl2ij"]
 
