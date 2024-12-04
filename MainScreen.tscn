@@ -1,17 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://td583monbtma"]
+[gd_scene load_steps=14 format=3 uid="uid://td583monbtma"]
 
-[ext_resource type="Texture2D" uid="uid://4wmswb4lqtsw" path="res://main_menu_src/bg.jpg" id="1_rwqf8"]
-[ext_resource type="FontFile" uid="uid://cwxgp0orp1prk" path="res://main_menu_src/ofont.ru_Open Sans.ttf" id="1_sidu4"]
-[ext_resource type="Texture2D" uid="uid://ucjaggfc6g0g" path="res://main_menu_src/btns/play/play.png" id="2_y3nyb"]
-[ext_resource type="Texture2D" uid="uid://c1w4vm05d0r34" path="res://main_menu_src/btns/play/play pressed.png" id="3_cbhrc"]
-[ext_resource type="Texture2D" uid="uid://b87hogf505apo" path="res://main_menu_src/btns/play/play hover.png" id="4_wl371"]
-[ext_resource type="Texture2D" uid="uid://d3f5ovlqu3vjf" path="res://main_menu_src/btns/settings/settings.png" id="5_e8vef"]
-[ext_resource type="Texture2D" uid="uid://c2yl14i4pqg5e" path="res://main_menu_src/btns/settings/settings pressed.png" id="6_klax1"]
-[ext_resource type="Texture2D" uid="uid://b3rotnvjn35fc" path="res://main_menu_src/btns/settings/settings hover.png" id="7_klo6x"]
-[ext_resource type="Texture2D" uid="uid://c1os8tj0wcn68" path="res://main_menu_src/btns/exit/exit.png" id="9_ly6b7"]
-[ext_resource type="Texture2D" uid="uid://dlp8i7ajb51up" path="res://main_menu_src/btns/exit/exit pressed.png" id="10_2gucm"]
-[ext_resource type="Texture2D" uid="uid://br7g8hbhmw3jk" path="res://main_menu_src/btns/exit/exit hover.png" id="11_jvoed"]
-[ext_resource type="Texture2D" uid="uid://c8gx7w6bmb6cd" path="res://main_menu_src/logo.png" id="12_x74s7"]
+[ext_resource type="Script" path="res://main_screen.gd" id="1_7flru"]
+[ext_resource type="FontFile" uid="uid://dosnnkfj2stao" path="res://main_menu_src/ofont.ru_Open Sans.ttf" id="1_sidu4"]
+[ext_resource type="Texture2D" uid="uid://dxp5hu8ok57dl" path="res://main_menu_src/bg.webp" id="1_yojym"]
+[ext_resource type="Texture2D" uid="uid://bg43vdyppess6" path="res://main_menu_src/btns/play/play.png" id="2_y3nyb"]
+[ext_resource type="Texture2D" uid="uid://dr7q1urlchk6s" path="res://main_menu_src/btns/play/play hover.png" id="4_wl371"]
+[ext_resource type="Texture2D" uid="uid://281780hspldw" path="res://main_menu_src/btns/settings/settings.png" id="5_e8vef"]
+[ext_resource type="Texture2D" uid="uid://c4ddlttoq28sc" path="res://main_menu_src/btns/settings/settings hover.png" id="7_klo6x"]
+[ext_resource type="Texture2D" uid="uid://cmyyl5271hgsb" path="res://main_menu_src/btns/exit/exit.png" id="9_ly6b7"]
+[ext_resource type="Texture2D" uid="uid://bexvg22me7w5v" path="res://main_menu_src/main menu logo.png" id="11_gbx01"]
+[ext_resource type="Texture2D" uid="uid://dq3t3muyskj8i" path="res://main_menu_src/btns/exit/exit hover.png" id="11_jvoed"]
+[ext_resource type="PackedScene" uid="uid://clxr7vpn5wboc" path="res://loading.tscn" id="11_y38sq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3eygt"]
 
@@ -19,20 +18,38 @@
 default_font = ExtResource("1_sidu4")
 
 [node name="Control" type="Control"]
+custom_minimum_size = Vector2(1152, 648)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7flru")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="bg" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(1152, 648)
-layout_mode = 0
-offset_right = 1792.0
-offset_bottom = 1024.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.508
+anchor_right = 0.5
+anchor_bottom = 0.508
+offset_left = -576.0
+offset_top = -329.184
+offset_right = 1216.0
+offset_bottom = 694.816
 scale = Vector2(0.64313, 0.64313)
-texture = ExtResource("1_rwqf8")
+texture = ExtResource("1_yojym")
+
+[node name="logo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 332.0
+offset_top = -65.0
+offset_right = 2298.0
+offset_bottom = 1607.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("11_gbx01")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -59,7 +76,7 @@ grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 theme = SubResource("Theme_mw4x6")
 texture_normal = ExtResource("2_y3nyb")
-texture_pressed = ExtResource("3_cbhrc")
+texture_pressed = ExtResource("2_y3nyb")
 texture_hover = ExtResource("4_wl371")
 stretch_mode = 0
 
@@ -78,7 +95,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("5_e8vef")
-texture_pressed = ExtResource("6_klax1")
+texture_pressed = ExtResource("5_e8vef")
 texture_hover = ExtResource("7_klo6x")
 
 [node name="exit" type="TextureButton" parent="Panel"]
@@ -96,14 +113,26 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("9_ly6b7")
-texture_pressed = ExtResource("10_2gucm")
+texture_pressed = ExtResource("9_ly6b7")
 texture_hover = ExtResource("11_jvoed")
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="loading" parent="." instance=ExtResource("11_y38sq")]
+visible = false
 layout_mode = 0
-offset_left = 431.0
-offset_top = -10.0
-offset_right = 1607.0
-offset_bottom = 1166.0
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("12_x74s7")
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1792.0
+offset_bottom = 1024.0
+
+[node name="Timer" type="Timer" parent="loading"]
+wait_time = 3.0
+
+[connection signal="pressed" from="Panel/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Panel/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Panel/exit" to="." method="_on_exit_pressed"]
+[connection signal="timeout" from="loading/Timer" to="." method="_on_timer_timeout"]
