@@ -1,34 +1,19 @@
-extends CharacterBody3D
+extends Node3D
 
-const SPEED = 5.0          # Скорость движения
-const JUMP_FORCE = 2.0     # Сила прыжка
-const GRAVITY = -9.8       # Гравитация
+# Переменные
+@export var move_speed = 5.0
+var velocity = Vector3.ZERO
 
-func _physics_process(delta):
-	# Управление
-	var direction = Vector3.ZERO
+# Функция запускается при старте
+func _ready() -> void:
+	print("Kitchen is ready!")
+
+# Обработка кадров
+func _process(delta: float) -> void:
+	handle_input(delta)
+
+# Обработка ввода
+func handle_input(delta: float) -> void:
 	if Input.is_action_pressed("move_forward"):
-		direction.z -= 1
-	if Input.is_action_pressed("move_backward"):
-		direction.z += 1
-	if Input.is_action_pressed("move_left"):
-		direction.x -= 1
-	if Input.is_action_pressed("move_right"):
-		direction.x += 1
-
-	# Нормализация направления
-	direction = direction.normalized()
-
-	# Движение
-	velocity.x = direction.x * SPEED
-	velocity.z = direction.z * SPEED
-
-	# Прыжки и гравитация
-	if is_on_floor():
-		if Input.is_action_just_pressed("jump"):
-			velocity.y = JUMP_FORCE
-	else:
-		velocity.y += GRAVITY * delta
-
-	# Применяем движение
-	move_and_slide()
+		velocity.z -= move_speed * delta
+		print("Moving forward")

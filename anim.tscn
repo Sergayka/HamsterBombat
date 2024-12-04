@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2tcwqiqa6qd1"]
+
+[ext_resource type="PackedScene" uid="uid://b1dyfavnmoeds" path="res://tesdt.glb" id="1_arjks"]
+
+[node name="tesdt" instance=ExtResource("1_arjks")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(0.831658, 17.1778, -7.0947)
+bones/0/rotation = Quaternion(-0.582682, -0.00107761, 0.0518185, 0.811046)
+bones/1/rotation = Quaternion(0.0313536, 0.0315464, -0.00967736, 0.998964)
+bones/2/rotation = Quaternion(0.0269573, 0.0210228, 0.00667839, 0.999393)
+bones/3/rotation = Quaternion(0.02633, 0.0213121, 0.00743018, 0.999398)
+bones/4/rotation = Quaternion(-0.0568273, -0.00153904, 0.011881, 0.998312)
+bones/5/rotation = Quaternion(-0.0888475, 0.0148482, -0.0304436, 0.995469)
+bones/7/rotation = Quaternion(-0.630886, -0.369193, 0.526085, -0.434643)
+bones/8/rotation = Quaternion(0.414234, 0.209783, 0.0637811, 0.883365)
+bones/9/rotation = Quaternion(-0.0887972, 0.0728104, 0.618234, 0.777561)
+bones/10/rotation = Quaternion(0.0686423, 0.735786, -0.407101, 0.53682)
+bones/11/rotation = Quaternion(-0.53032, 0.266219, -0.744507, -0.305937)
+bones/12/rotation = Quaternion(0.273754, -0.0877355, -0.37932, 0.879475)
+bones/13/rotation = Quaternion(0.239554, -0.115564, -0.301363, 0.915663)
+bones/15/rotation = Quaternion(0.598154, -0.403087, 0.53385, 0.44129)
+bones/16/rotation = Quaternion(0.334788, -0.211588, -0.146989, 0.906389)
+bones/17/rotation = Quaternion(-0.0837914, -0.0811227, -0.650555, 0.750451)
+bones/18/rotation = Quaternion(0.0600571, -0.56583, 0.130452, 0.811919)
+bones/19/rotation = Quaternion(-0.0515881, -0.0747863, -0.43872, 0.894019)
+bones/20/rotation = Quaternion(0.105432, -0.0250746, -0.398817, 0.910605)
+bones/21/rotation = Quaternion(0.108865, -0.00614304, -0.387353, 0.915461)
+bones/23/rotation = Quaternion(0.0148406, 0.376686, 0.923907, 0.0654498)
+bones/24/rotation = Quaternion(-0.932582, -0.0510858, 0.086842, 0.346611)
+bones/25/rotation = Quaternion(0.893404, -0.170205, 0.121909, 0.397489)
+bones/26/rotation = Quaternion(0.438152, -0.153101, 0.129521, 0.876246)
+bones/28/rotation = Quaternion(0.0222084, 0.360572, 0.932458, -0.00399249)
+bones/29/rotation = Quaternion(-0.656129, 0.0171934, -0.0492724, 0.752842)
+bones/30/rotation = Quaternion(0.899104, 0.117297, -0.157651, 0.391152)
+bones/31/rotation = Quaternion(0.110336, -0.000502923, -0.00453041, 0.993884)
+
+[node name="Camera3D" type="Camera3D" parent="." index="2"]
+transform = Transform3D(-1, 8.74228e-08, 0, 8.74228e-08, 1, 8.74228e-08, 7.64274e-15, 8.74228e-08, -1, 0, 0.2, -0.23)
