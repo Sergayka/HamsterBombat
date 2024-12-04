@@ -30,7 +30,7 @@ omni_range = 4096.0
 omni_attenuation = 0.798
 
 [node name="HamsterAnimV1" parent="." instance=ExtResource("4_3xkqh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.6336, 9.28903, -254.294)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.6336, 9.55772, -254.294)
 script = ExtResource("5_67hs8")
 
 [node name="loading" parent="." instance=ExtResource("5_hcc6g")]
