@@ -6,9 +6,13 @@
 [ext_resource type="Script" path="res://hamster.gd" id="3_dl2ij"]
 [ext_resource type="PackedScene" uid="uid://clxr7vpn5wboc" path="res://loading.tscn" id="5_hcc6g"]
 
+[ext_resource type="Script" path="res://new_script.gd" id="1_5nwer"]
+[ext_resource type="PackedScene" uid="uid://bi7mpkpr2ekfi" path="res://kitchen1.glb" id="1_k48vf"]
+[ext_resource type="PackedScene" uid="uid://dfv381qvntlvc" path="res://hamster_anim_v_1.tscn" id="4_sjy2f"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_27aat"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tewch"]
+[node name="Kitchen" type="Node3D"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_of7ij")
@@ -16,11 +20,11 @@ script = ExtResource("1_of7ij")
 [node name="kitchen1" parent="." instance=ExtResource("1_k48vf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8905, 3.92198, -243.804)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="kitchen1"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Foundation"]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 1.11, 2.078, -9.196)
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="kitchen1/StaticBody3D"]
-transform = Transform3D(11, 0, 0, 0, 0.105, 0, 0, 0, 18, -3, 3.2, 4.804)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Foundation/StaticBody3D"]
+transform = Transform3D(11, 0, 0, 0, 0.105, 0, 0, 0, 18, 0, 3.102, 4.804)
 shape = SubResource("BoxShape3D_27aat")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
