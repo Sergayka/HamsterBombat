@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7o15soiogyi1"]
+
+[ext_resource type="ArrayMesh" uid="uid://coy2a2uiufc05" path="res://Hamster_01.obj" id="1_en1un"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_en1un")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 0, 8.74228e-08, 1, 8.74228e-08, 7.64274e-15, 8.74228e-08, -1, 0, 0.2, -0.23)
