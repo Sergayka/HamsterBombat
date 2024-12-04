@@ -1,4 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dduirm5ychoe6"]
+[gd_scene load_steps=8 format=3 uid="uid://dduirm5ychoe6"]
+
+[ext_resource type="PackedScene" uid="uid://dorl847toranq" path="res://kitchen1.glb" id="1_k48vf"]
+[ext_resource type="Script" path="res://node_3d.gd" id="1_of7ij"]
+[ext_resource type="PackedScene" uid="uid://b7o15soiogyi1" path="res://hamster.tscn" id="2_1i7vm"]
+[ext_resource type="Script" path="res://hamster.gd" id="3_dl2ij"]
+[ext_resource type="PackedScene" uid="uid://clxr7vpn5wboc" path="res://loading.tscn" id="5_hcc6g"]
 
 [ext_resource type="Script" path="res://new_script.gd" id="1_5nwer"]
 [ext_resource type="PackedScene" uid="uid://bi7mpkpr2ekfi" path="res://kitchen1.glb" id="1_k48vf"]
@@ -8,7 +14,10 @@
 
 [node name="Kitchen" type="Node3D"]
 
-[node name="Foundation" parent="." instance=ExtResource("1_k48vf")]
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_of7ij")
+
+[node name="kitchen1" parent="." instance=ExtResource("1_k48vf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8905, 3.92198, -243.804)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Foundation"]
@@ -26,6 +35,13 @@ light_specular = 0.0
 omni_range = 4096.0
 omni_attenuation = 0.798
 
-[node name="HamsterAnimV1" parent="." instance=ExtResource("4_sjy2f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.813, 9.49854, -254.489)
-script = ExtResource("1_5nwer")
+[node name="hamster" parent="." instance=ExtResource("2_1i7vm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 9.6, -254)
+script = ExtResource("3_dl2ij")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="hamster"]
+transform = Transform3D(1, 0, 0, 0, 0.6, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+shape = SubResource("CapsuleShape3D_tewch")
+
+[node name="loading" parent="." instance=ExtResource("5_hcc6g")]
