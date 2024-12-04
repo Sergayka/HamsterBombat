@@ -1,15 +1,15 @@
 [gd_scene load_steps=14 format=3 uid="uid://td583monbtma"]
 
 [ext_resource type="Script" path="res://main_screen.gd" id="1_7flru"]
-[ext_resource type="FontFile" uid="uid://dosnnkfj2stao" path="res://main_menu_src/ofont.ru_Open Sans.ttf" id="1_sidu4"]
-[ext_resource type="Texture2D" uid="uid://dxp5hu8ok57dl" path="res://main_menu_src/bg.webp" id="1_yojym"]
-[ext_resource type="Texture2D" uid="uid://bg43vdyppess6" path="res://main_menu_src/btns/play/play.png" id="2_y3nyb"]
-[ext_resource type="Texture2D" uid="uid://dr7q1urlchk6s" path="res://main_menu_src/btns/play/play hover.png" id="4_wl371"]
-[ext_resource type="Texture2D" uid="uid://281780hspldw" path="res://main_menu_src/btns/settings/settings.png" id="5_e8vef"]
-[ext_resource type="Texture2D" uid="uid://c4ddlttoq28sc" path="res://main_menu_src/btns/settings/settings hover.png" id="7_klo6x"]
-[ext_resource type="Texture2D" uid="uid://cmyyl5271hgsb" path="res://main_menu_src/btns/exit/exit.png" id="9_ly6b7"]
-[ext_resource type="Texture2D" uid="uid://bexvg22me7w5v" path="res://main_menu_src/main menu logo.png" id="11_gbx01"]
-[ext_resource type="Texture2D" uid="uid://dq3t3muyskj8i" path="res://main_menu_src/btns/exit/exit hover.png" id="11_jvoed"]
+[ext_resource type="FontFile" uid="uid://c8xpdd2fvuto8" path="res://main_menu_src/ofont.ru_Open Sans.ttf" id="1_sidu4"]
+[ext_resource type="Texture2D" uid="uid://0f0mvrrpvcde" path="res://main_menu_src/bg.webp" id="1_yojym"]
+[ext_resource type="Texture2D" uid="uid://dl6rof8t2ckey" path="res://main_menu_src/btns/play/play.png" id="2_y3nyb"]
+[ext_resource type="Texture2D" uid="uid://b6f56a0biihlq" path="res://main_menu_src/btns/play/play hover.png" id="4_wl371"]
+[ext_resource type="Texture2D" uid="uid://ds5ekrsybj4xg" path="res://main_menu_src/btns/settings/settings.png" id="5_e8vef"]
+[ext_resource type="Texture2D" uid="uid://drawauavjdi3h" path="res://main_menu_src/btns/settings/settings hover.png" id="7_klo6x"]
+[ext_resource type="Texture2D" uid="uid://cmjskhb5m2pt5" path="res://main_menu_src/btns/exit/exit.png" id="9_ly6b7"]
+[ext_resource type="Texture2D" uid="uid://giq8blwqt0dj" path="res://main_menu_src/main menu logo.png" id="11_gbx01"]
+[ext_resource type="Texture2D" uid="uid://b63ypi18poknm" path="res://main_menu_src/btns/exit/exit hover.png" id="11_jvoed"]
 [ext_resource type="PackedScene" uid="uid://clxr7vpn5wboc" path="res://loading.tscn" id="11_y38sq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3eygt"]
@@ -130,7 +130,7 @@ offset_right = 1792.0
 offset_bottom = 1024.0
 
 [node name="Timer" type="Timer" parent="loading"]
-wait_time = 3.0
+wait_time = 2.0
 
 [connection signal="pressed" from="Panel/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Panel/settings" to="." method="_on_settings_pressed"]
