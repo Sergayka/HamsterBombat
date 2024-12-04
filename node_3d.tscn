@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dduirm5ychoe6"]
+
+[ext_resource type="Script" path="res://new_script.gd" id="1_5nwer"]
+[ext_resource type="PackedScene" uid="uid://bi7mpkpr2ekfi" path="res://kitchen1.glb" id="1_k48vf"]
+[ext_resource type="PackedScene" uid="uid://dfv381qvntlvc" path="res://hamster_anim_v_1.tscn" id="4_sjy2f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_27aat"]
+
+[node name="Kitchen" type="Node3D"]
+
+[node name="Foundation" parent="." instance=ExtResource("1_k48vf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8905, 3.92198, -243.804)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Foundation"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 1.11, 2.078, -9.196)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Foundation/StaticBody3D"]
+transform = Transform3D(11, 0, 0, 0, 0.105, 0, 0, 0, 18, 0, 3.102, 4.804)
+shape = SubResource("BoxShape3D_27aat")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.48, 12.842, -254.162)
+light_energy = 7.788
+light_indirect_energy = 14.67
+light_specular = 0.0
+omni_range = 4096.0
+omni_attenuation = 0.798
+
+[node name="HamsterAnimV1" parent="." instance=ExtResource("4_sjy2f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.813, 9.49854, -254.489)
+script = ExtResource("1_5nwer")
