@@ -1,19 +1,19 @@
 [gd_scene load_steps=43 format=3 uid="uid://dduirm5ychoe6"]
 
 [ext_resource type="Script" path="res://node_3d.gd" id="1_kqbc8"]
-[ext_resource type="Texture2D" uid="uid://fx0jfqkm5k6g" path="res://kitchen items/textures/32543-skinali-7065.webp" id="2_qul0i"]
-[ext_resource type="ArrayMesh" uid="uid://bws0dfgbxy1ht" path="res://kitchen items/main.obj" id="3_x55pu"]
-[ext_resource type="Texture2D" uid="uid://myvvfav10h4w" path="res://kitchen items/textures/Table_baseColor.png" id="4_bp1rn"]
-[ext_resource type="ArrayMesh" uid="uid://tjp5ugfvmlfg" path="res://kitchen items/tbl.obj" id="5_oxk4u"]
-[ext_resource type="Texture2D" uid="uid://tutgfkj7wvj1" path="res://textures/Chair_baseColor.png" id="6_vq5kd"]
-[ext_resource type="ArrayMesh" uid="uid://l6ygb0y5mrcv" path="res://kitchen items/chair.obj" id="7_r2rn8"]
-[ext_resource type="Texture2D" uid="uid://kk28a2t5go37" path="res://kitchen items/textures/200.jpg" id="8_ur1mm"]
-[ext_resource type="Texture2D" uid="uid://be3f0i1a1ghyg" path="res://kitchen items/textures/material_19_baseColor.png" id="9_sty20"]
-[ext_resource type="Texture2D" uid="uid://dnvsmci3tocs1" path="res://kitchen items/textures/Fridge_specularf0.png" id="10_nj6nk"]
-[ext_resource type="ArrayMesh" uid="uid://cff3g4i3tt7vh" path="res://kitchen items/window.obj" id="10_om80g"]
-[ext_resource type="ArrayMesh" uid="uid://bqhqlwwwcs0qv" path="res://kitchen items/fridge.obj" id="12_pfqhh"]
-[ext_resource type="Texture2D" uid="uid://b3ywq06a1jm5" path="res://kitchen items/textures/Fridge_baseColor.png" id="12_qi6wa"]
-[ext_resource type="ArrayMesh" uid="uid://bvfh1dqyagkxr" path="res://kitchen items/fartuc.obj" id="14_sy88m"]
+[ext_resource type="Texture2D" uid="uid://b2g26ghmcq4aw" path="res://kitchen items/textures/32543-skinali-7065.webp" id="2_qul0i"]
+[ext_resource type="ArrayMesh" uid="uid://brtkq6v06hco0" path="res://kitchen items/main.obj" id="3_x55pu"]
+[ext_resource type="Texture2D" uid="uid://bk1kw0moa0asx" path="res://kitchen items/textures/Table_baseColor.png" id="4_bp1rn"]
+[ext_resource type="ArrayMesh" uid="uid://bm6mqb2d25sm" path="res://kitchen items/tbl.obj" id="5_oxk4u"]
+[ext_resource type="Texture2D" uid="uid://3fnfesw2e6sr" path="res://textures/Chair_baseColor.png" id="6_vq5kd"]
+[ext_resource type="ArrayMesh" uid="uid://d1tdtn5kaggf1" path="res://kitchen items/chair.obj" id="7_r2rn8"]
+[ext_resource type="Texture2D" uid="uid://1pk3g281c3i2" path="res://kitchen items/textures/200.jpg" id="8_ur1mm"]
+[ext_resource type="Texture2D" uid="uid://fh4v2vpkvsme" path="res://kitchen items/textures/material_19_baseColor.png" id="9_sty20"]
+[ext_resource type="Texture2D" uid="uid://c688sd4e0tnsn" path="res://kitchen items/textures/Fridge_specularf0.png" id="10_nj6nk"]
+[ext_resource type="ArrayMesh" uid="uid://chck4mng6jbem" path="res://kitchen items/window.obj" id="10_om80g"]
+[ext_resource type="ArrayMesh" uid="uid://d0fwoeednd1np" path="res://kitchen items/fridge.obj" id="12_pfqhh"]
+[ext_resource type="Texture2D" uid="uid://c3ci03m6tv5p5" path="res://kitchen items/textures/Fridge_baseColor.png" id="12_qi6wa"]
+[ext_resource type="ArrayMesh" uid="uid://dcqiselffkql5" path="res://kitchen items/fartuc.obj" id="14_sy88m"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjpq4"]
 albedo_texture = ExtResource("2_qul0i")
@@ -103,7 +103,7 @@ size = Vector3(7.39015, 0.397816, 26.4437)
 script = ExtResource("1_kqbc8")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.177496, 0.96717, 0.181872, 0.773593, -0.0228877, -0.633269, -0.608316, 0.253098, -0.752259, -37.2437, 42.2462, -46.8382)
+transform = Transform3D(0.177496, 0.96717, 0.181872, 0.773593, -0.0228873, -0.633269, -0.608316, 0.253098, -0.752259, -30.6418, 42.2462, -13.941)
 
 [node name="Main_StaticBody" type="StaticBody3D" parent="."]
 transform = Transform3D(0.845543, 0, 0, 0, 0.845543, 0, 0, 0, 0.845543, 0, 0, 0)
