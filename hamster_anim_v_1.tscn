@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dfv381qvntlvc"]
 
-[ext_resource type="PackedScene" uid="uid://c04ydbvayg5tj" path="res://HamsterAnimV1.glb" id="1_y3by2"]
+[ext_resource type="PackedScene" uid="uid://v4bd7nuwo5qg" path="res://HamsterAnimV1.glb" id="1_y3by2"]
 
 [node name="HamsterAnimV1" instance=ExtResource("1_y3by2")]
 
