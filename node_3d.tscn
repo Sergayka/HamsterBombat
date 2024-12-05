@@ -1,8 +1,6 @@
-
-[gd_scene load_steps=53 format=3 uid="uid://dduirm5ychoe6"]
+[gd_scene load_steps=45 format=3 uid="uid://dduirm5ychoe6"]
 
 [ext_resource type="Script" path="res://node_3d.gd" id="1_kqbc8"]
-
 [ext_resource type="Texture2D" uid="uid://b2g26ghmcq4aw" path="res://kitchen items/textures/32543-skinali-7065.webp" id="2_qul0i"]
 [ext_resource type="ArrayMesh" uid="uid://brtkq6v06hco0" path="res://kitchen items/main.obj" id="3_x55pu"]
 [ext_resource type="Texture2D" uid="uid://bk1kw0moa0asx" path="res://kitchen items/textures/Table_baseColor.png" id="4_bp1rn"]
@@ -16,7 +14,8 @@
 [ext_resource type="ArrayMesh" uid="uid://d0fwoeednd1np" path="res://kitchen items/fridge.obj" id="12_pfqhh"]
 [ext_resource type="Texture2D" uid="uid://c3ci03m6tv5p5" path="res://kitchen items/textures/Fridge_baseColor.png" id="12_qi6wa"]
 [ext_resource type="ArrayMesh" uid="uid://dcqiselffkql5" path="res://kitchen items/fartuc.obj" id="14_sy88m"]
-
+[ext_resource type="PackedScene" uid="uid://dfv381qvntlvc" path="res://hamster_anim_v_1.tscn" id="15_3nykl"]
+[ext_resource type="Script" path="res://new_script.gd" id="16_p2idg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjpq4"]
 albedo_texture = ExtResource("2_qul0i")
@@ -31,10 +30,7 @@ size = Vector3(6.07032, 28.7429, 77.7568)
 size = Vector3(6.48305, 28.844, 70.1143)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c084f"]
-size = Vector3(15.5386, 28.6938, 6.27588)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_76qgn"]
-size = Vector3(6.17554, 30.6804, 29.6841)
+size = Vector3(72.9773, 28.6938, 6.27588)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gx75j"]
 albedo_texture = ExtResource("4_bp1rn")
@@ -105,28 +101,8 @@ size = Vector3(7.19714, 6.23962, 25.5591)
 [sub_resource type="BoxShape3D" id="BoxShape3D_qte07"]
 size = Vector3(7.39015, 0.397816, 26.4437)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bfh1w"]
-albedo_texture = ExtResource("15_eptya")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_y1aai"]
-size = Vector3(3.20654, 9.75568, 3.26184)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_vmo10"]
-size = Vector3(8.38385, 1.88293, 5.83582)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nc8ky"]
-albedo_texture = ExtResource("17_jvj23")
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_ndu7v"]
-height = 0.519987
-radius = 1.76184
-
 [node name="Run Hammy Run" type="Node3D"]
 script = ExtResource("1_kqbc8")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.177496, 0.96717, 0.181872, 0.773593, -0.0228873, -0.633269, -0.608316, 0.253098, -0.752259, -30.6418, 42.2462, -13.941)
-
 
 [node name="Main_StaticBody" type="StaticBody3D" parent="."]
 transform = Transform3D(0.845543, 0, 0, 0, 0.845543, 0, 0, 0, 0.845543, 0, 0, 0)
@@ -149,12 +125,8 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -38.96
 shape = SubResource("BoxShape3D_4extv")
 
 [node name="RightWallCollision" type="CollisionShape3D" parent="Main_StaticBody"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -75.0727, 19.8179, -70.2912)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -75.0727, 19.8179, -40.7378)
 shape = SubResource("BoxShape3D_c084f")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Main_StaticBody"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.1179, 18.9272, -18.3408)
-shape = SubResource("BoxShape3D_76qgn")
 
 [node name="Table_StaticBody" type="StaticBody3D" parent="."]
 transform = Transform3D(9.95476, 0, 0, 0, 9.95476, 0, 0, 0, 9.95476, -21.8928, -82.0467, -38.2614)
@@ -500,123 +472,14 @@ shape = SubResource("BoxShape3D_amn41")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.10337, 11.4765, -25.7369)
 shape = SubResource("BoxShape3D_qte07")
 
-[node name="Vityajka_StaticBody" type="StaticBody3D" parent="."]
-
-[node name="VityajkaMesh" type="MeshInstance3D" parent="Vityajka_StaticBody"]
-transform = Transform3D(14.2859, 0, 0, 0, 14.2859, 0, 0, 0, 14.2859, -9.45498, -130.323, -47.3861)
-material_override = SubResource("StandardMaterial3D_bfh1w")
-mesh = ExtResource("16_mtngh")
-
-[node name="UpCollision" type="CollisionShape3D" parent="Vityajka_StaticBody"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.9246, 22.9943, -7.10213)
-shape = SubResource("BoxShape3D_y1aai")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Vityajka_StaticBody"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.9282, 17.1333, -8.45274)
-shape = SubResource("BoxShape3D_vmo10")
-
-[node name="Plates_StaticBody" type="StaticBody3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Plates_StaticBody"]
-transform = Transform3D(4.13252, 0, 0, 0, 4.13252, 0, 0, 0, 4.13252, -17.701, -243.534, -27.45)
-material_override = SubResource("StandardMaterial3D_nc8ky")
-mesh = ExtResource("18_gvqcl")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Plates_StaticBody"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.5733, 11.9508, -37.3038)
-shape = SubResource("CylinderShape3D_ndu7v")
-metadata/_edit_group_ = true
-
-[node name="Plates_StaticBody2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.159691, 0, 7.99959)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Plates_StaticBody2"]
-transform = Transform3D(4.13252, 0, 0, 0, 4.13252, 0, 0, 0, 4.13252, -17.701, -243.534, -27.45)
-material_override = SubResource("StandardMaterial3D_nc8ky")
-mesh = ExtResource("18_gvqcl")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Plates_StaticBody2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.5733, 11.9508, -37.3038)
-shape = SubResource("CylinderShape3D_ndu7v")
-metadata/_edit_group_ = true
-
-[node name="Plates_StaticBody3" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.83259, 0, 11.566)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Plates_StaticBody3"]
-transform = Transform3D(4.13252, 0, 0, 0, 4.13252, 0, 0, 0, 4.13252, -17.701, -243.534, -27.45)
-material_override = SubResource("StandardMaterial3D_nc8ky")
-mesh = ExtResource("18_gvqcl")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Plates_StaticBody3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.5733, 11.9508, -37.3038)
-shape = SubResource("CylinderShape3D_ndu7v")
-metadata/_edit_group_ = true
-
-[node name="Plates_StaticBody4" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.51686, 0, 7.94636)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Plates_StaticBody4"]
-transform = Transform3D(4.13252, 0, 0, 0, 4.13252, 0, 0, 0, 4.13252, -17.701, -243.534, -27.45)
-material_override = SubResource("StandardMaterial3D_nc8ky")
-mesh = ExtResource("18_gvqcl")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Plates_StaticBody4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.5733, 11.9508, -37.3038)
-shape = SubResource("CylinderShape3D_ndu7v")
-metadata/_edit_group_ = true
-
-[node name="Plates_StaticBody5" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.46363, 0, -0.0381927)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Plates_StaticBody5"]
-transform = Transform3D(4.13252, 0, 0, 0, 4.13252, 0, 0, 0, 4.13252, -17.701, -243.534, -27.45)
-material_override = SubResource("StandardMaterial3D_nc8ky")
-mesh = ExtResource("18_gvqcl")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Plates_StaticBody5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.5733, 11.9508, -37.3038)
-shape = SubResource("CylinderShape3D_ndu7v")
-metadata/_edit_group_ = true
-=======
-[gd_scene load_steps=7 format=3 uid="uid://dduirm5ychoe6"]
-
-[ext_resource type="PackedScene" uid="uid://4vbokglckhti" path="res://kitchen1.glb" id="1_k48vf"]
-[ext_resource type="Script" path="res://node_3d.gd" id="1_of7ij"]
-[ext_resource type="PackedScene" uid="uid://dfv381qvntlvc" path="res://hamster_anim_v_1.tscn" id="4_3xkqh"]
-[ext_resource type="Script" path="res://new_script.gd" id="5_67hs8"]
-[ext_resource type="PackedScene" uid="uid://clxr7vpn5wboc" path="res://loading.tscn" id="5_hcc6g"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_27aat"]
-
-[node name="Node3D" type="Node3D"]
-script = ExtResource("1_of7ij")
-
-[node name="kitchen1" parent="." instance=ExtResource("1_k48vf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8905, 3.92198, -243.804)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="kitchen1"]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 1.11, 2.078, -9.196)
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="kitchen1/StaticBody3D"]
-transform = Transform3D(11, 0, 0, 0, 0.105, 0, 0, 0, 18, -3, 3.2, 4.804)
-shape = SubResource("BoxShape3D_27aat")
+[node name="HamsterAnimV1" parent="." instance=ExtResource("15_3nykl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.1249, 27.3462, -45.5572)
+script = ExtResource("16_p2idg")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.48, 12.842, -254.162)
-light_energy = 7.788
-light_indirect_energy = 14.67
-light_specular = 0.0
-omni_range = 4096.0
-omni_attenuation = 0.798
-
-[node name="HamsterAnimV1" parent="." instance=ExtResource("4_3xkqh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.6336, 9.55772, -254.294)
-script = ExtResource("5_67hs8")
-
-[node name="loading" parent="." instance=ExtResource("5_hcc6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.1304, 34.7638, -32.0416)
+light_energy = 2.264
+light_indirect_energy = 6.435
+light_volumetric_fog_energy = 7.7
+omni_range = 45.019
+omni_attenuation = 0.254
