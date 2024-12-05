@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dduirm5ychoe6"]
+[gd_scene load_steps=48 format=3 uid="uid://dduirm5ychoe6"]
 
 [ext_resource type="Script" path="res://node_3d.gd" id="1_kqbc8"]
 [ext_resource type="Texture2D" uid="uid://b2g26ghmcq4aw" path="res://kitchen items/textures/32543-skinali-7065.webp" id="2_qul0i"]
@@ -16,6 +16,9 @@
 [ext_resource type="ArrayMesh" uid="uid://dcqiselffkql5" path="res://kitchen items/fartuc.obj" id="14_sy88m"]
 [ext_resource type="PackedScene" uid="uid://dfv381qvntlvc" path="res://hamster_anim_v_1.tscn" id="15_3nykl"]
 [ext_resource type="Script" path="res://new_script.gd" id="16_p2idg"]
+[ext_resource type="PackedScene" uid="uid://bh5v5otlpaheo" path="res://boy_animation.tscn" id="17_3w8bp"]
+[ext_resource type="Script" path="res://boy_animation.gd" id="18_h687n"]
+[ext_resource type="AudioStream" uid="uid://d0gtsxpy7m47u" path="res://music.mp3" id="19_w22br"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjpq4"]
 albedo_texture = ExtResource("2_qul0i")
@@ -114,18 +117,22 @@ mesh = ExtResource("3_x55pu")
 
 [node name="FloorCollision" type="CollisionShape3D" parent="Main_StaticBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.9686, 2.70968, -39.0776)
+visible = false
 shape = SubResource("BoxShape3D_m34cv")
 
 [node name="LeftWallCollision" type="CollisionShape3D" parent="Main_StaticBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2919, 19.7655, -39.2604)
+visible = false
 shape = SubResource("BoxShape3D_pq7tt")
 
 [node name="BackWallCollision" type="CollisionShape3D" parent="Main_StaticBody"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -38.9657, 19.7655, -3.13654)
+visible = false
 shape = SubResource("BoxShape3D_4extv")
 
 [node name="RightWallCollision" type="CollisionShape3D" parent="Main_StaticBody"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -75.0727, 19.8179, -40.7378)
+visible = false
 shape = SubResource("BoxShape3D_c084f")
 
 [node name="Table_StaticBody" type="StaticBody3D" parent="."]
@@ -138,22 +145,27 @@ mesh = ExtResource("5_oxk4u")
 
 [node name="TableSurfaceCollision" type="CollisionShape3D" parent="Table_StaticBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35806, 9.42055, 0.455183)
+visible = false
 shape = SubResource("BoxShape3D_de0w5")
 
 [node name="LeftFrontTableLegCollision" type="CollisionShape3D" parent="Table_StaticBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.836881, 9.05953, -0.448786)
+visible = false
 shape = SubResource("CylinderShape3D_owipe")
 
 [node name="RightFrontTableLegCollision" type="CollisionShape3D" parent="Table_StaticBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.88122, 9.05953, -0.448786)
+visible = false
 shape = SubResource("CylinderShape3D_owipe")
 
 [node name="RightBackTableLegCollision" type="CollisionShape3D" parent="Table_StaticBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.88122, 9.05953, 1.36132)
+visible = false
 shape = SubResource("CylinderShape3D_owipe")
 
 [node name="LeftBackTableLegCollision" type="CollisionShape3D" parent="Table_StaticBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.839925, 9.05953, 1.36132)
+visible = false
 shape = SubResource("CylinderShape3D_owipe")
 
 [node name="Chair_StaticBody" type="StaticBody3D" parent="."]
@@ -166,42 +178,52 @@ mesh = ExtResource("7_r2rn8")
 
 [node name="ChairCollision" type="CollisionShape3D" parent="Chair_StaticBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.4535, 19.7354, -40.3076)
+visible = false
 shape = SubResource("BoxShape3D_ksinh")
 
 [node name="UpChairCollision" type="CollisionShape3D" parent="Chair_StaticBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.9346, 20.0254, -39.9686)
+visible = false
 shape = SubResource("BoxShape3D_d2dc3")
 
 [node name="ChairLegCollision1" type="CollisionShape3D" parent="Chair_StaticBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4752, 16.6369, -36.4776)
+visible = false
 shape = SubResource("BoxShape3D_r6i1o")
 
 [node name="ChairLegCollision2" type="CollisionShape3D" parent="Chair_StaticBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4752, 16.6369, -43.5218)
+visible = false
 shape = SubResource("BoxShape3D_r6i1o")
 
 [node name="ChairLegCollision3" type="CollisionShape3D" parent="Chair_StaticBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.1253, 15.0957, -36.4326)
+visible = false
 shape = SubResource("BoxShape3D_8vnr7")
 
 [node name="ChairLegCollision4" type="CollisionShape3D" parent="Chair_StaticBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.1253, 15.0957, -43.4751)
+visible = false
 shape = SubResource("BoxShape3D_8vnr7")
 
 [node name="ChairLegCollision5" type="CollisionShape3D" parent="Chair_StaticBody"]
 transform = Transform3D(0.999647, 0.0265957, 0, -0.0265957, 0.999647, 0, 0, 0, 1, -25.3789, 26.4535, -36.4632)
+visible = false
 shape = SubResource("BoxShape3D_b87op")
 
 [node name="ChairLegCollision6" type="CollisionShape3D" parent="Chair_StaticBody"]
 transform = Transform3D(0.999648, 0.0265957, 0, -0.0265957, 0.999648, 0, 0, 0, 1, -25.379, 26.4535, -43.5356)
+visible = false
 shape = SubResource("BoxShape3D_b87op")
 
 [node name="ChairBackCollision" type="CollisionShape3D" parent="Chair_StaticBody"]
 transform = Transform3D(0.999985, 0.00548031, 0, -0.00548031, 0.999985, 0, 0, 0, 1, -25.8039, 25.5136, -40.0297)
+visible = false
 shape = SubResource("BoxShape3D_m4kou")
 
 [node name="ChairBackCollision1" type="CollisionShape3D" parent="Chair_StaticBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.7557, 30.1971, -40.0246)
+visible = false
 shape = SubResource("BoxShape3D_b2wsv")
 
 [node name="Chair_StaticBody2" type="StaticBody3D" parent="."]
@@ -214,42 +236,52 @@ mesh = ExtResource("7_r2rn8")
 
 [node name="ChairCollision" type="CollisionShape3D" parent="Chair_StaticBody2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.4535, 19.7354, -40.3076)
+visible = false
 shape = SubResource("BoxShape3D_ksinh")
 
 [node name="UpChairCollision" type="CollisionShape3D" parent="Chair_StaticBody2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.9346, 20.0254, -39.9686)
+visible = false
 shape = SubResource("BoxShape3D_d2dc3")
 
 [node name="ChairLegCollision1" type="CollisionShape3D" parent="Chair_StaticBody2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4752, 16.6369, -36.4776)
+visible = false
 shape = SubResource("BoxShape3D_r6i1o")
 
 [node name="ChairLegCollision2" type="CollisionShape3D" parent="Chair_StaticBody2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4752, 16.6369, -43.5218)
+visible = false
 shape = SubResource("BoxShape3D_r6i1o")
 
 [node name="ChairLegCollision3" type="CollisionShape3D" parent="Chair_StaticBody2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.1253, 15.0957, -36.4326)
+visible = false
 shape = SubResource("BoxShape3D_8vnr7")
 
 [node name="ChairLegCollision4" type="CollisionShape3D" parent="Chair_StaticBody2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.1253, 15.0957, -43.4751)
+visible = false
 shape = SubResource("BoxShape3D_8vnr7")
 
 [node name="ChairLegCollision5" type="CollisionShape3D" parent="Chair_StaticBody2"]
 transform = Transform3D(0.999647, 0.0265957, 0, -0.0265957, 0.999647, 0, 0, 0, 1, -25.3789, 26.4535, -36.4632)
+visible = false
 shape = SubResource("BoxShape3D_b87op")
 
 [node name="ChairLegCollision6" type="CollisionShape3D" parent="Chair_StaticBody2"]
 transform = Transform3D(0.999648, 0.0265957, 0, -0.0265957, 0.999648, 0, 0, 0, 1, -25.379, 26.4535, -43.5356)
+visible = false
 shape = SubResource("BoxShape3D_b87op")
 
 [node name="ChairBackCollision" type="CollisionShape3D" parent="Chair_StaticBody2"]
 transform = Transform3D(0.999985, 0.00548031, 0, -0.00548031, 0.999985, 0, 0, 0, 1, -25.8039, 25.5136, -40.0297)
+visible = false
 shape = SubResource("BoxShape3D_m4kou")
 
 [node name="ChairBackCollision1" type="CollisionShape3D" parent="Chair_StaticBody2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.7557, 30.1971, -40.0246)
+visible = false
 shape = SubResource("BoxShape3D_b2wsv")
 
 [node name="Chair_StaticBody4" type="StaticBody3D" parent="."]
@@ -262,42 +294,52 @@ mesh = ExtResource("7_r2rn8")
 
 [node name="ChairCollision" type="CollisionShape3D" parent="Chair_StaticBody4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.4535, 19.7354, -40.3076)
+visible = false
 shape = SubResource("BoxShape3D_ksinh")
 
 [node name="UpChairCollision" type="CollisionShape3D" parent="Chair_StaticBody4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.9346, 20.0254, -39.9686)
+visible = false
 shape = SubResource("BoxShape3D_d2dc3")
 
 [node name="ChairLegCollision1" type="CollisionShape3D" parent="Chair_StaticBody4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4752, 16.6369, -36.4776)
+visible = false
 shape = SubResource("BoxShape3D_r6i1o")
 
 [node name="ChairLegCollision2" type="CollisionShape3D" parent="Chair_StaticBody4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4752, 16.6369, -43.5218)
+visible = false
 shape = SubResource("BoxShape3D_r6i1o")
 
 [node name="ChairLegCollision3" type="CollisionShape3D" parent="Chair_StaticBody4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.1253, 15.0957, -36.4326)
+visible = false
 shape = SubResource("BoxShape3D_8vnr7")
 
 [node name="ChairLegCollision4" type="CollisionShape3D" parent="Chair_StaticBody4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.1253, 15.0957, -43.4751)
+visible = false
 shape = SubResource("BoxShape3D_8vnr7")
 
 [node name="ChairLegCollision5" type="CollisionShape3D" parent="Chair_StaticBody4"]
 transform = Transform3D(0.999647, 0.0265957, 0, -0.0265957, 0.999647, 0, 0, 0, 1, -25.3789, 26.4535, -36.4632)
+visible = false
 shape = SubResource("BoxShape3D_b87op")
 
 [node name="ChairLegCollision6" type="CollisionShape3D" parent="Chair_StaticBody4"]
 transform = Transform3D(0.999648, 0.0265957, 0, -0.0265957, 0.999648, 0, 0, 0, 1, -25.379, 26.4535, -43.5356)
+visible = false
 shape = SubResource("BoxShape3D_b87op")
 
 [node name="ChairBackCollision" type="CollisionShape3D" parent="Chair_StaticBody4"]
 transform = Transform3D(0.999985, 0.00548031, 0, -0.00548031, 0.999985, 0, 0, 0, 1, -25.8039, 25.5136, -40.0297)
+visible = false
 shape = SubResource("BoxShape3D_m4kou")
 
 [node name="ChairBackCollision1" type="CollisionShape3D" parent="Chair_StaticBody4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.7557, 30.1971, -40.0246)
+visible = false
 shape = SubResource("BoxShape3D_b2wsv")
 
 [node name="Chair_StaticBody5" type="StaticBody3D" parent="."]
@@ -310,42 +352,52 @@ mesh = ExtResource("7_r2rn8")
 
 [node name="ChairCollision" type="CollisionShape3D" parent="Chair_StaticBody5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.4535, 19.7354, -40.3076)
+visible = false
 shape = SubResource("BoxShape3D_ksinh")
 
 [node name="UpChairCollision" type="CollisionShape3D" parent="Chair_StaticBody5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.9346, 20.0254, -39.9686)
+visible = false
 shape = SubResource("BoxShape3D_d2dc3")
 
 [node name="ChairLegCollision1" type="CollisionShape3D" parent="Chair_StaticBody5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4752, 16.6369, -36.4776)
+visible = false
 shape = SubResource("BoxShape3D_r6i1o")
 
 [node name="ChairLegCollision2" type="CollisionShape3D" parent="Chair_StaticBody5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4752, 16.6369, -43.5218)
+visible = false
 shape = SubResource("BoxShape3D_r6i1o")
 
 [node name="ChairLegCollision3" type="CollisionShape3D" parent="Chair_StaticBody5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.1253, 15.0957, -36.4326)
+visible = false
 shape = SubResource("BoxShape3D_8vnr7")
 
 [node name="ChairLegCollision4" type="CollisionShape3D" parent="Chair_StaticBody5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.1253, 15.0957, -43.4751)
+visible = false
 shape = SubResource("BoxShape3D_8vnr7")
 
 [node name="ChairLegCollision5" type="CollisionShape3D" parent="Chair_StaticBody5"]
 transform = Transform3D(0.999647, 0.0265957, 0, -0.0265957, 0.999647, 0, 0, 0, 1, -25.3789, 26.4535, -36.4632)
+visible = false
 shape = SubResource("BoxShape3D_b87op")
 
 [node name="ChairLegCollision6" type="CollisionShape3D" parent="Chair_StaticBody5"]
 transform = Transform3D(0.999648, 0.0265957, 0, -0.0265957, 0.999648, 0, 0, 0, 1, -25.379, 26.4535, -43.5356)
+visible = false
 shape = SubResource("BoxShape3D_b87op")
 
 [node name="ChairBackCollision" type="CollisionShape3D" parent="Chair_StaticBody5"]
 transform = Transform3D(0.999985, 0.00548031, 0, -0.00548031, 0.999985, 0, 0, 0, 1, -25.8039, 25.5136, -40.0297)
+visible = false
 shape = SubResource("BoxShape3D_m4kou")
 
 [node name="ChairBackCollision1" type="CollisionShape3D" parent="Chair_StaticBody5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.7557, 30.1971, -40.0246)
+visible = false
 shape = SubResource("BoxShape3D_b2wsv")
 
 [node name="Chair_StaticBody3" type="StaticBody3D" parent="."]
@@ -358,42 +410,52 @@ mesh = ExtResource("7_r2rn8")
 
 [node name="ChairCollision" type="CollisionShape3D" parent="Chair_StaticBody3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.4535, 19.7354, -40.3076)
+visible = false
 shape = SubResource("BoxShape3D_ksinh")
 
 [node name="UpChairCollision" type="CollisionShape3D" parent="Chair_StaticBody3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.9346, 20.0254, -39.9686)
+visible = false
 shape = SubResource("BoxShape3D_d2dc3")
 
 [node name="ChairLegCollision1" type="CollisionShape3D" parent="Chair_StaticBody3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4752, 16.6369, -36.4776)
+visible = false
 shape = SubResource("BoxShape3D_r6i1o")
 
 [node name="ChairLegCollision2" type="CollisionShape3D" parent="Chair_StaticBody3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4752, 16.6369, -43.5218)
+visible = false
 shape = SubResource("BoxShape3D_r6i1o")
 
 [node name="ChairLegCollision3" type="CollisionShape3D" parent="Chair_StaticBody3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.1253, 15.0957, -36.4326)
+visible = false
 shape = SubResource("BoxShape3D_8vnr7")
 
 [node name="ChairLegCollision4" type="CollisionShape3D" parent="Chair_StaticBody3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.1253, 15.0957, -43.4751)
+visible = false
 shape = SubResource("BoxShape3D_8vnr7")
 
 [node name="ChairLegCollision5" type="CollisionShape3D" parent="Chair_StaticBody3"]
 transform = Transform3D(0.999647, 0.0265957, 0, -0.0265957, 0.999647, 0, 0, 0, 1, -25.3789, 26.4535, -36.4632)
+visible = false
 shape = SubResource("BoxShape3D_b87op")
 
 [node name="ChairLegCollision6" type="CollisionShape3D" parent="Chair_StaticBody3"]
 transform = Transform3D(0.999648, 0.0265957, 0, -0.0265957, 0.999648, 0, 0, 0, 1, -25.379, 26.4535, -43.5356)
+visible = false
 shape = SubResource("BoxShape3D_b87op")
 
 [node name="ChairBackCollision" type="CollisionShape3D" parent="Chair_StaticBody3"]
 transform = Transform3D(0.999985, 0.00548031, 0, -0.00548031, 0.999985, 0, 0, 0, 1, -25.8039, 25.5136, -40.0297)
+visible = false
 shape = SubResource("BoxShape3D_m4kou")
 
 [node name="ChairBackCollision1" type="CollisionShape3D" parent="Chair_StaticBody3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.7557, 30.1971, -40.0246)
+visible = false
 shape = SubResource("BoxShape3D_b2wsv")
 
 [node name="Floor_StaticBody" type="StaticBody3D" parent="."]
@@ -406,6 +468,7 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor_StaticBody"]
 transform = Transform3D(65.126, 0, 0, 0, 65.126, 0, 0, 0, 65.126, -32.8954, 4.22057, -33.0914)
+visible = false
 shape = SubResource("BoxShape3D_tvshl")
 metadata/_edit_group_ = true
 
@@ -419,6 +482,7 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Window_StaticBody1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.012, 17.7629, -2.94729)
+visible = false
 shape = SubResource("BoxShape3D_asxel")
 metadata/_edit_group_ = true
 
@@ -433,6 +497,7 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Window_StaticBody2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.012, 17.7629, -2.94729)
+visible = false
 shape = SubResource("BoxShape3D_asxel")
 metadata/_edit_group_ = true
 
@@ -446,6 +511,7 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fridge_StaticBody"]
 transform = Transform3D(0.810389, 0, -0.585892, 0, 1, 0, 0.585892, 0, 0.810389, -54.9679, 14.0791, -10.9193)
+visible = false
 shape = SubResource("BoxShape3D_ul0vd")
 metadata/_edit_group_ = true
 
@@ -458,22 +524,26 @@ mesh = ExtResource("14_sy88m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fartuc_StaticBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5363, 8.37106, -8.11452)
+visible = false
 shape = SubResource("BoxShape3D_cwf5f")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Fartuc_StaticBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.89374, 8.03461, -25.5797)
+visible = false
 shape = SubResource("BoxShape3D_amn41")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Fartuc_StaticBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.89374, 20.853, -25.7196)
+visible = false
 shape = SubResource("BoxShape3D_amn41")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Fartuc_StaticBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.10337, 11.4765, -25.7369)
+visible = false
 shape = SubResource("BoxShape3D_qte07")
 
 [node name="HamsterAnimV1" parent="." instance=ExtResource("15_3nykl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.1249, 27.3462, -45.5572)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.1249, 20.017, -35.9584)
 script = ExtResource("16_p2idg")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
@@ -483,3 +553,11 @@ light_indirect_energy = 6.435
 light_volumetric_fog_energy = 7.7
 omni_range = 45.019
 omni_attenuation = 0.254
+
+[node name="boyAnimation" parent="." instance=ExtResource("17_3w8bp")]
+transform = Transform3D(9.36488, 0, -0.0475638, 0, 9.365, 0, 0.0475638, 0, 9.36488, -52.4165, 4.87595, -39.8755)
+script = ExtResource("18_h687n")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_w22br")
+volume_db = 3.748
