@@ -17,4 +17,3 @@ func handle_input(delta: float) -> void:
 	if Input.is_action_pressed("move_forward"):
 		velocity.z -= move_speed * delta
 		print("Moving forward")
-
