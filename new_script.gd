@@ -9,12 +9,13 @@ extends Node3D
 @export var camera: Camera3D  # Камера хомяка
 @export var camera_distance: float = -1.0  # Высота камеры от хомяка
 @export var camera_height: float = 0.5  # Расстояниекамеры относительно хомяка
-@export var camera_offset_angle: float = 1.2  # Угол наклона камеры в градусах
+@export var camera_offset_angle: float = 5.2  # Угол наклона камеры в градусах
 
 var is_turning = false
 var is_moving = false
-var velocity = Vector3.ZERO  # Вектор скорости хомяка
+var velocity = Vector3.ZERO # Вектор скорости хомяка
 var vertical_velocity = 0.0  # Вертикальная скорость для прыжка
+var is_falling = false
 
 func _ready():
 	if animation_player == null:
@@ -69,11 +70,22 @@ func _process(delta):
 
 	# Обновляем вертикальную скорость (гравитация)
 	if not is_on_ground():
-		vertical_velocity -= gravity * delta  # Если хомяк не на земле, действуем гравитацией
+		vertical_velocity -= gravity * delta
+		is_falling = true
+		play_falling_animation()  # Если хомяк не на земле, действуем гравитацией
+		#if vertical_velocity <= 0:  # Хомяк в падении
+			#if not is_falling:  # Если падение только началось
+				#play_falling_animation()
+			#is_falling = true
 	else:
 		if vertical_velocity < 0:
 			vertical_velocity = 0  # Сбрасываем вертикальную скорость при приземлении
-
+		if is_falling:  # Когда хомяк приземляется
+			play_falling_impact_animation()
+		is_falling = false  # Сбрасываем вертикальную скорость при приземлении
+#amera_height, camera_distance)  # Камера находится немного ниже и позади.
+	#offset = offset.rotated(Vector3.UP, rotation.y)  # Поворот камеры вокруг хомяка (по оси Y)
+	#offset = offset.rotated(V
 	# Обновляем скорость
 	velocity = move_direction * move_speed
 	velocity.y = vertical_velocity  # Добавляем вертикальную составляющую
@@ -85,7 +97,8 @@ func _process(delta):
 	if is_moving:
 		play_run_animation()
 	else:
-		play_idle_animation()
+		if not is_falling:
+			play_idle_animation()
 
 	# Повороты
 	if Input.is_action_pressed("move_right"):  # Поворот направо
@@ -132,7 +145,7 @@ func play_idle_animation():
 	if animation_player.current_animation != "idle":
 		animation_player.play("idle")
 
-# Функция для проигрывания анимации прыжка
+# Функция для проигрывания анимации прыжкаidle
 func play_jump_animation():
 	# Если анимация не проигрывается, то проигрываем "jump"
 	if animation_player.current_animation != "jump":
@@ -151,3 +164,15 @@ func turn_left(delta):
 	rotation.y += 5.0 * delta  # Скорость поворота
 	if animation_player.current_animation != "turnLeft":
 		animation_player.play("turnLeft")
+		
+# Функция для проигрывания анимации "falling"
+func play_falling_animation():
+	if animation_player.current_animation != "falling":
+		print("Playing falling animation")
+		animation_player.play("falling")
+
+# Функция для проигрывания анимации "fallingFlatImpact"
+func play_falling_impact_animation():
+	if animation_player.current_animation != "fallingFlatImapct":
+		print("bum")
+		animation_player.play("fallingFlatImapct")
