@@ -1,0 +1,138 @@
+[gd_scene load_steps=14 format=3 uid="uid://td583monbtma"]
+
+[ext_resource type="Script" path="res://main_screen.gd" id="1_7flru"]
+[ext_resource type="FontFile" uid="uid://c8xpdd2fvuto8" path="res://main_menu_src/ofont.ru_Open Sans.ttf" id="1_sidu4"]
+[ext_resource type="Texture2D" uid="uid://0f0mvrrpvcde" path="res://main_menu_src/bg.webp" id="1_yojym"]
+[ext_resource type="Texture2D" uid="uid://dl6rof8t2ckey" path="res://main_menu_src/btns/play/play.png" id="2_y3nyb"]
+[ext_resource type="Texture2D" uid="uid://b6f56a0biihlq" path="res://main_menu_src/btns/play/play hover.png" id="4_wl371"]
+[ext_resource type="Texture2D" uid="uid://ds5ekrsybj4xg" path="res://main_menu_src/btns/settings/settings.png" id="5_e8vef"]
+[ext_resource type="Texture2D" uid="uid://drawauavjdi3h" path="res://main_menu_src/btns/settings/settings hover.png" id="7_klo6x"]
+[ext_resource type="Texture2D" uid="uid://cmjskhb5m2pt5" path="res://main_menu_src/btns/exit/exit.png" id="9_ly6b7"]
+[ext_resource type="Texture2D" uid="uid://giq8blwqt0dj" path="res://main_menu_src/main menu logo.png" id="11_gbx01"]
+[ext_resource type="Texture2D" uid="uid://b63ypi18poknm" path="res://main_menu_src/btns/exit/exit hover.png" id="11_jvoed"]
+[ext_resource type="PackedScene" uid="uid://clxr7vpn5wboc" path="res://loading.tscn" id="11_y38sq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3eygt"]
+
+[sub_resource type="Theme" id="Theme_mw4x6"]
+default_font = ExtResource("1_sidu4")
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7flru")
+
+[node name="bg" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.508
+anchor_right = 0.5
+anchor_bottom = 0.508
+offset_left = -576.0
+offset_top = -329.184
+offset_right = 1216.0
+offset_bottom = 694.816
+scale = Vector2(0.64313, 0.64313)
+texture = ExtResource("1_yojym")
+
+[node name="logo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 332.0
+offset_top = -65.0
+offset_right = 2298.0
+offset_bottom = 1607.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("11_gbx01")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3eygt")
+
+[node name="start" type="TextureButton" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = -45.0
+offset_right = 405.0
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme = SubResource("Theme_mw4x6")
+texture_normal = ExtResource("2_y3nyb")
+texture_pressed = ExtResource("2_y3nyb")
+texture_hover = ExtResource("4_wl371")
+stretch_mode = 0
+
+[node name="settings" type="TextureButton" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = 55.0
+offset_right = 405.0
+offset_bottom = 236.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("5_e8vef")
+texture_pressed = ExtResource("5_e8vef")
+texture_hover = ExtResource("7_klo6x")
+
+[node name="exit" type="TextureButton" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = 155.0
+offset_right = 405.0
+offset_bottom = 336.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("9_ly6b7")
+texture_pressed = ExtResource("9_ly6b7")
+texture_hover = ExtResource("11_jvoed")
+
+[node name="loading" parent="." instance=ExtResource("11_y38sq")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1792.0
+offset_bottom = 1024.0
+
+[node name="Timer" type="Timer" parent="loading"]
+wait_time = 2.0
+
+[connection signal="pressed" from="Panel/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Panel/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Panel/exit" to="." method="_on_exit_pressed"]
+[connection signal="timeout" from="loading/Timer" to="." method="_on_timer_timeout"]
