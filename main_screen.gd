@@ -2,6 +2,10 @@ extends Control
 
 var button_type = null
 
+func _on_ready() -> void:
+	MusicManager.play_music()
+
+
 func _on_start_pressed() -> void:
 	button_type = "start"
 	$loading.show()
@@ -10,7 +14,7 @@ func _on_start_pressed() -> void:
 
 
 func _on_settings_pressed() -> void:
-	pass
+	$Settings/AnimationPlayer.play("sett_in")
 
 
 func _on_exit_pressed() -> void:
