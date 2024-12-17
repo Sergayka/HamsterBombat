@@ -15,9 +15,13 @@ run/main_scene="res://MainScreen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MusicManager="*res://MusicManager.gd"
+
 [display]
 
-window/size/resizable=false
+window/stretch/mode="viewport"
 
 [filesystem]
 
