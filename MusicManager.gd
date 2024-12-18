@@ -11,17 +11,14 @@ func _ready():
 
 		# Проверяем, что поток существует
 		if music_player.stream and music_player.stream is AudioStream:
-			# Устанавливаем loop у потока
 			var stream = music_player.stream as AudioStream
 			stream.loop = true
 			
 		music_player.volume_db = -30
-		music_player.play()
 
 func play_music():
 	if music_player and not music_player.playing:
 		music_player.play()
-		music_player.volume_db = -30
 
 func toggle_music():
 	if music_player:

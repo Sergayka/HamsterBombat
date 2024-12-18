@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="HamsterBombat"
-run/main_scene="res://MainScreen.tscn"
+run/main_scene="res://entrance.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
