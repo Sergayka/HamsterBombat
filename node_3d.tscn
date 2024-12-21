@@ -1,6 +1,7 @@
 [gd_scene load_steps=86 format=3 uid="uid://dduirm5ychoe6"]
 
 [ext_resource type="Script" path="res://node_3d.gd" id="1_kqbc8"]
+
 [ext_resource type="Texture2D" uid="uid://fx0jfqkm5k6g" path="res://kitchen items/textures/32543-skinali-7065.webp" id="2_qul0i"]
 [ext_resource type="ArrayMesh" uid="uid://bws0dfgbxy1ht" path="res://kitchen items/main.obj" id="3_x55pu"]
 [ext_resource type="Texture2D" uid="uid://myvvfav10h4w" path="res://kitchen items/textures/Table_baseColor.png" id="4_bp1rn"]
@@ -18,6 +19,7 @@
 [ext_resource type="Script" path="res://new_script.gd" id="16_p2idg"]
 [ext_resource type="PackedScene" uid="uid://bh5v5otlpaheo" path="res://boy_animation.tscn" id="17_3w8bp"]
 [ext_resource type="Script" path="res://boy_animation.gd" id="18_h687n"]
+
 [ext_resource type="AudioStream" uid="uid://cwefnpo1w06w5" path="res://music.mp3" id="19_w22br"]
 [ext_resource type="ArrayMesh" uid="uid://bunou8jkibkl0" path="res://kitchen items/tarelka.obj" id="20_tl61y"]
 [ext_resource type="ArrayMesh" uid="uid://b22sgou687jyd" path="res://bathroom_items/bathroommm/bathroommm.obj" id="21_5jikt"]
@@ -30,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://bis75fk8412e3" path="res://kitchen items/textures/material_19_specularf0.png" id="28_2nvo8"]
 [ext_resource type="ArrayMesh" uid="uid://0fbwipqyhqce" path="res://bedroom/cagey/ImageToStl.com_hamster_cage.obj" id="28_bb1ht"]
 [ext_resource type="ArrayMesh" uid="uid://dviwl5xukas6i" path="res://kitchen items/walli.obj" id="29_dpwpd"]
+
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjpq4"]
 albedo_texture = ExtResource("2_qul0i")
