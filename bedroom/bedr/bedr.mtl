@@ -1,0 +1,439 @@
+# Blender 4.2.1 LTS MTL File: 'None'
+# www.blender.org
+
+newmtl c5717dbd220f48ba29ba1d01f9fca897
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 2
+map_Kd c5717dbd220f48ba29ba1d01f9fca897.png
+map_d c5717dbd220f48ba29ba1d01f9fca897.png
+
+newmtl mat0
+Ka 0.837770 0.837770 0.837770
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 3
+map_Kd Image_0.jpg
+map_Ns Image_4.png
+map_refl Image_4.png
+
+newmtl mat1
+Ka 0.303350 0.303350 0.303350
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 3
+map_Kd Image_0.jpg
+map_Ns Image_4.png
+map_refl Image_4.png
+
+newmtl mat10
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Image_0.jpg
+map_Ns Image_1.png
+map_refl Image_1.png
+
+newmtl mat11
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Image_0.jpg
+map_Ns Image_6.png
+map_refl Image_6.png
+
+newmtl mat12
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Image_0.jpg
+map_Ns Image_1.png
+map_refl Image_1.png
+
+newmtl mat13
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Image_0.jpg
+map_Ns Image_4.png
+map_refl Image_4.png
+
+newmtl mat14
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Image_0.jpg
+map_Ns Image_1.png
+map_refl Image_1.png
+
+newmtl mat16
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Image_0.jpg
+map_Ns Image_1.png
+map_refl Image_1.png
+
+newmtl mat17
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Image_0.jpg
+map_Ns Image_1.png
+map_refl Image_1.png
+
+newmtl mat18
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Image_0.jpg
+map_Ns Image_1.png
+map_refl Image_1.png
+
+newmtl mat19
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Image_7.png
+map_Ns Image_40.png
+map_refl Image_40.png
+
+newmtl mat2
+Ka 0.546270 0.546270 0.546270
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 3
+map_Kd Image_0.jpg
+map_Ns Image_1.png
+map_refl Image_1.png
+
+newmtl mat20
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Image_0.jpg
+map_Ns Image_1.png
+map_refl Image_1.png
+
+newmtl mat21
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Image_0.jpg
+map_Ns Image_1.png
+map_refl Image_1.png
+
+newmtl mat22
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Image_0.jpg
+map_Ns Image_1.png
+map_refl Image_1.png
+
+newmtl mat23
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Image_0.jpg
+map_Ns Image_1.png
+map_refl Image_1.png
+
+newmtl mat24
+Ka 1.000000 1.000000 1.000000
+Kd 0.005770 0.185570 0.872670
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Ns Image_1.png
+map_refl Image_1.png
+
+newmtl mat25
+Ns 544.827942
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.685950
+illum 9
+
+newmtl mat26
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Image_0.jpg
+map_Ns Image_1.png
+map_refl Image_1.png
+
+newmtl mat27
+Ka 0.418730 0.418730 0.418730
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 3
+map_Kd Image_0.jpg
+map_Ns Image_1.png
+map_refl Image_1.png
+
+newmtl mat28
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Image_7.png
+map_Ns Image_1.png
+map_refl Image_1.png
+
+newmtl mat29
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Image_0.jpg
+map_Ns Image_1.png
+map_refl Image_1.png
+
+newmtl mat3
+Ka 0.576630 0.576630 0.576630
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 3
+map_Kd Image_0.jpg
+map_Ns Image_1.png
+map_refl Image_1.png
+
+newmtl mat30
+Ns 380.856689
+Ka 0.734530 0.734530 0.734530
+Kd 0.347700 0.145370 0.041110
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 3
+
+newmtl mat31
+Ka 0.090790 0.090790 0.090790
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 3
+map_Kd Image_12.png
+map_Ns Image_13.png
+map_refl Image_13.png
+
+newmtl mat32
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Image_0.jpg
+map_Ns Image_1.png
+map_refl Image_1.png
+
+newmtl mat33
+Ka 0.017920 0.017920 0.017920
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 3
+map_Kd Image_12.png
+map_Ns Image_13.png
+map_refl Image_13.png
+
+newmtl mat36
+Ka 0.588780 0.588780 0.588780
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 3
+map_Kd Image_23.png
+map_Ns Image_24.png
+map_refl Image_24.png
+
+newmtl mat37
+Ka 0.157590 0.157590 0.157590
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 3
+map_Kd Image_27.png
+map_Ns Image_28.png
+map_refl Image_28.png
+
+newmtl mat38
+Ka 0.102940 0.102940 0.102940
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 3
+map_Kd Image_31.png
+map_Ns Image_32.png
+map_refl Image_32.png
+
+newmtl mat39
+Ka 0.084720 0.084720 0.084720
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 3
+map_Kd Image_35.png
+map_Ns Image_36.png
+map_refl Image_36.png
+
+newmtl mat40
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Image_0.jpg
+map_Ns Image_4.png
+map_refl Image_4.png
+
+newmtl mat41
+Ka 0.272980 0.272980 0.272980
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 3
+map_Kd Image_0.jpg
+map_Ns Image_1.png
+map_refl Image_1.png
+
+newmtl mat42
+Ka 0.327640 0.327640 0.327640
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 3
+map_Kd Image_0.jpg
+map_Ns Image_1.png
+map_refl Image_1.png
+
+newmtl mat43
+Ka 0.406590 0.406590 0.406590
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 3
+map_Kd Image_0.jpg
+map_Ns Image_1.png
+map_refl Image_1.png
+
+newmtl mat44
+Ka 0.764900 0.764900 0.764900
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 3
+map_Kd Image_0.jpg
+map_Ns Image_1.png
+map_refl Image_1.png
+
+newmtl mat45
+Ka 0.637360 0.637360 0.637360
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 3
+map_Kd Image_0.jpg
+map_Ns Image_1.png
+map_refl Image_1.png
+
+newmtl mat8
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Image_0.jpg
+map_Ns Image_4.png
+map_refl Image_4.png
+
+newmtl mat9
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd Image_0.jpg
+map_Ns Image_5.png
+map_refl Image_5.png
