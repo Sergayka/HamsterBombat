@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://posvhxu0jgqd" path="res://HamsterAnimV1.glb" id="1_y3by2"]
 
+
 [node name="HamsterAnimV1" instance=ExtResource("1_y3by2")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
