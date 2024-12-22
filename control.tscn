@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv6di76vfa3g7"]
+
+[ext_resource type="Script" path="res://control.gd" id="1_ptfgd"]
+[ext_resource type="VideoStream" path="res://videos/video.ogv" id="2_0dphe"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ptfgd")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("2_0dphe")
