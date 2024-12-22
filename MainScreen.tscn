@@ -1,6 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://td583monbtma"]
 
 [ext_resource type="Script" path="res://main_screen.gd" id="1_7flru"]
+
 [ext_resource type="FontFile" uid="uid://dosnnkfj2stao" path="res://main_menu_src/ofont.ru_Open Sans.ttf" id="1_sidu4"]
 [ext_resource type="Texture2D" uid="uid://dxp5hu8ok57dl" path="res://main_menu_src/bg.webp" id="1_yojym"]
 [ext_resource type="Texture2D" uid="uid://bg43vdyppess6" path="res://main_menu_src/btns/play/play.png" id="2_y3nyb"]
@@ -13,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://clxr7vpn5wboc" path="res://loading.tscn" id="11_y38sq"]
 [ext_resource type="PackedScene" uid="uid://ion5tquw5a1p" path="res://settings.tscn" id="12_eg60m"]
 [ext_resource type="PackedScene" uid="uid://dcii2ewmeyo7q" path="res://intro_load.tscn" id="13_xqj8v"]
+
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3eygt"]
 

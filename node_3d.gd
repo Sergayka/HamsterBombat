@@ -9,3 +9,4 @@ func _ready() -> void:
 
 func _on_timer_timeout() -> void:
 	$intro_out.visible = false
+

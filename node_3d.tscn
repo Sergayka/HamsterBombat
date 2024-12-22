@@ -20,17 +20,22 @@
 [ext_resource type="Script" path="res://boy_animation.gd" id="18_h687n"]
 [ext_resource type="PackedScene" uid="uid://dcii2ewmeyo7q" path="res://intro_load.tscn" id="19_0iob1"]
 
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjpq4"]
 albedo_texture = ExtResource("2_qul0i")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m34cv"]
+
 size = Vector3(77.4019, 5.41028, 78.1519)
+
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pq7tt"]
 size = Vector3(6.07032, 28.7429, 77.7568)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4extv"]
+
 size = Vector3(6.48305, 28.844, 70.1143)
+
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c084f"]
 size = Vector3(72.9773, 28.6938, 6.27588)
@@ -103,6 +108,7 @@ size = Vector3(7.19714, 6.23962, 25.5591)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qte07"]
 size = Vector3(7.39015, 0.397816, 26.4437)
+
 
 [node name="Run Hammy Run" type="Node3D"]
 script = ExtResource("1_kqbc8")
@@ -552,10 +558,12 @@ light_energy = 2.264
 light_indirect_energy = 6.435
 light_volumetric_fog_energy = 7.7
 omni_range = 45.019
+
 omni_attenuation = 0.254
 
 [node name="boyAnimation" parent="." instance=ExtResource("17_3w8bp")]
 transform = Transform3D(9.36488, 0, -0.0475638, 0, 9.365, 0, 0.0475638, 0, 9.36488, -52.4165, 4.87595, -39.8755)
+
 script = ExtResource("18_h687n")
 
 [node name="intro_out" parent="." instance=ExtResource("19_0iob1")]
@@ -564,3 +572,4 @@ script = ExtResource("18_h687n")
 wait_time = 1.1
 
 [connection signal="timeout" from="intro_out/Timer" to="." method="_on_timer_timeout"]
+
