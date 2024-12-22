@@ -7,12 +7,19 @@ extends CharacterBody3D
 @export var raycast: RayCast3D  # RayCast для проверки земли
 
 @export var camera: Camera3D  # Камера хомяка
-@export var camera_distance: float = -1.0  # Расстояние камеры от хомяка
-@export var camera_height: float = 0.5  # Высота камеры относительно хомяка
-@export var camera_offset_angle: float = 5.2  # Угол наклона камеры в градусах
+@export var camera_distance: float = 0
+@export var camera_height: float = 0.5
+@export var camera_offset_angle: float = 0
+
+@export var max_pitch: float = 80.0  # Максимальный угол наклона вверх/вниз
+@export var min_pitch: float = -80.0  # Минимальный угол наклона вверх/вниз
+@export var max_yaw: float = 80.0  # Максимальный угол поворота влево/вправ
+@export var min_yaw: float = -80.0  # Минимальный угол поворота влево/вправ
 
 var vertical_velocity = 0.0  # Вертикальная скорость для прыжка
 var is_falling = false
+var pitch: float = 0.0  # Угол наклона
+var yaw: float = 0.0  # Угол поворота
 
 func _ready():
 	if animation_player == null:
@@ -24,9 +31,28 @@ func _ready():
 
 	# Проверяем, что камера и другие компоненты правильно подключены
 	if camera == null:
-		print("Camera3D не назначена!")
+		camera = $Camera3D
+		if camera == null:
+			print("Camera3D не назначена!")
 	else:
 		print("Camera3D найдена!")
+
+	# Захватываем мышь
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func _unhandled_input(event):
+	if event is InputEventMouseMotion:
+		# Обрабатываем движение мыши
+		print("Mouse Motion: ", event.relative)
+		yaw -= event.relative.x * 0.1  # Поворот влево/вправ
+		pitch -= event.relative.y * 0.1  # Наклон вверх/вниз
+
+		# Ограничиваем углы наклона и поворота
+		pitch = clamp(pitch, min_pitch, max_pitch)
+		yaw = clamp(yaw, min_yaw, max_yaw)
+
+		# Обновляем позицию и ориентацию камеры
+		update_camera_position()
 
 # Функция обновления игры каждый кадр
 func _process(delta):
@@ -96,11 +122,21 @@ func is_on_ground() -> bool:
 # Обновление позиции камеры
 func update_camera_position():
 	if camera != null:
-		var angle_in_radians = deg_to_rad(camera_offset_angle)
+		# Поворот камеры вокруг персонажа с использованием yaw и pitch
+		var camera_rotation = Basis()
+		camera_rotation = camera_rotation.rotated(Vector3.UP, deg_to_rad(yaw))  # Поворот по оси Y
+		camera_rotation = camera_rotation.rotated(Vector3.RIGHT, deg_to_rad(pitch))  # Наклон по оси X
+
+		# Смещение камеры относительно персонажа (с учетом высоты и расстояния)
 		var offset = Vector3(0, camera_height, camera_distance)
-		offset = offset.rotated(Vector3.UP, rotation.y)
-		offset = offset.rotated(Vector3.RIGHT, angle_in_radians)
-		camera.transform.origin = position + offset
+
+		# Применяем поворот камеры относительно персонажа
+		var camera_position = camera_rotation * offset
+
+		# Устанавливаем позицию камеры
+		camera.global_transform.origin = position + camera_position
+
+		# Камера будет смотреть на персонажа
 		camera.look_at(position, Vector3.UP)
 
 # Функции для анимаций
@@ -121,8 +157,8 @@ func play_falling_animation():
 		animation_player.play("falling")
 
 func play_falling_impact_animation():
-	if animation_player.current_animation != "fallingFlatImapct":
-		animation_player.play("fallingFlatImapct")
+	if animation_player.current_animation != "fallingFlatImpact":
+		animation_player.play("fallingFlatImpact")
 
 # Повороты
 func turn_right(delta):
