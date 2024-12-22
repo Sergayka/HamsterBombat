@@ -7,90 +7,83 @@ extends CharacterBody3D
 @export var raycast: RayCast3D
 
 @export var camera: Camera3D
-@export var camera_distance: float = -3.0
+@export var camera_distance: float = -2.0  # Положительное значение для отдаления камеры
 @export var camera_height: float = 1.5
 
-@export var max_pitch: float = 80.0
-@export var min_pitch: float = 0.0
-@export var max_yaw: float = 45.0
-@export var min_yaw: float = -45.0
+@export var mouse_sensitivity: float = 0.2
+@export var max_yaw: float = 360.0
+@export var min_yaw: float = 0.0
 
 var vertical_velocity = 0.0
 var is_falling = false
-var pitch: float = 0.0
 var yaw: float = 0.0
 
 func _ready():
 	if animation_player == null:
 		animation_player = $AnimationPlayer
-		
+	
 	if raycast == null:
 		raycast = $RayCast3D
-
+	
 	if camera == null:
 		camera = $Camera3D
 		if camera == null:
 			print("Camera3D не назначена!")
 	else:
 		print("Camera3D найдена!")
-
+	
+	# Захватываем мышь для управления камерой
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
-		yaw -= event.relative.x * 0.1
-		pitch -= event.relative.y * 0.1
+		# Поворачиваем хомяка по горизонтали на основе движения мыши
+		yaw -= event.relative.x * mouse_sensitivity * 0.01
+		yaw = wrapf(yaw, 0, 2 * PI)  # Ограничиваем значение yaw в диапазоне [0, 2π)
+		rotation.y = yaw
 
-		pitch = clamp(pitch, min_pitch, max_pitch)
-		yaw = clamp(yaw, min_yaw, max_yaw)
-
+		# Обновляем позицию камеры
 		update_camera_position()
 
 func _process(delta):
+	var is_moving_forward = Input.is_action_pressed("move_forward")
+	var is_jumping = Input.is_action_just_pressed("jump")
+	
+	# Обработка движения вперед
 	var move_direction = Vector3.ZERO
-
-	if Input.is_action_pressed("move_forward"):
-		move_direction.z -= 1
-	if Input.is_action_pressed("move_back"):
-		move_direction.z += 1
-	if Input.is_action_pressed("move_right"):
-		move_direction.x += 1
-	if Input.is_action_pressed("move_left"):
-		move_direction.x -= 1
-
+	if is_moving_forward:
+		# Изменили знак с -z на +z для корректного движения вперед
+		move_direction = transform.basis.z.normalized()
+	
 	if move_direction != Vector3.ZERO:
-		move_direction = move_direction.normalized()
+		velocity = move_direction * move_speed
+	else:
+		velocity = Vector3.ZERO
 
-	# Поворот персонажа
-	if move_direction != Vector3.ZERO:
-		var look_direction = Vector2(move_direction.x, move_direction.z)  # Исправлено направление Z
-		var new_rotation = atan2(look_direction.x, look_direction.y)
-		rotation.y = lerp_angle(rotation.y, new_rotation, 0.1)  # Сглаживаем поворот
-
-	move_direction = -global_transform.basis.z * move_direction.z + global_transform.basis.x * move_direction.x
-
-	if is_on_ground() and Input.is_action_just_pressed("jump"):
-		vertical_velocity = jump_strength
-		play_jump_animation()
-
-	if not is_on_ground():
+	# Обработка прыжка
+	if is_on_ground():
+		if is_jumping:
+			vertical_velocity = jump_strength
+			play_jump_animation()
+	else:
 		vertical_velocity -= gravity * delta
 		is_falling = true
 		play_falling_animation()
-	else:
+	
+	if is_on_ground() and is_falling:
 		if vertical_velocity < 0:
 			vertical_velocity = 0
-		if is_falling:
-			play_falling_impact_animation()
+		play_falling_impact_animation()
 		is_falling = false
 
-	velocity = move_direction * move_speed
 	velocity.y = vertical_velocity
 
+	# Применяем движение
 	move_and_slide()
 
-	if move_direction != Vector3.ZERO:
-		play_run_animation()
+	# Обработка анимаций
+	if is_moving_forward:
+		play_forward_animation()
 	else:
 		if not is_falling:
 			play_idle_animation()
@@ -100,25 +93,23 @@ func is_on_ground() -> bool:
 
 func update_camera_position():
 	if camera:
-		var combined_yaw = yaw + rotation.y  # Суммируем повороты камеры и персонажа
-		var camera_rotation = Basis()
-		camera_rotation = camera_rotation.rotated(Vector3.UP, deg_to_rad(combined_yaw))
-		camera_rotation = camera_rotation.rotated(Vector3.RIGHT, deg_to_rad(pitch))
+		# Позиционируем камеру позади хомяка по +z, если движение вперед по +z
+		var camera_position = global_transform.origin + transform.basis.z * camera_distance + Vector3(0, camera_height, 0)
+		camera.global_transform.origin = camera_position
+		camera.look_at(global_transform.origin + Vector3(0, camera_height, 0), Vector3.UP)
 
-		var offset = Vector3(0, camera_height, -camera_distance)
-		var camera_position = camera_rotation * offset
-
-		camera.global_transform.origin = global_transform.origin + camera_position
-		camera.look_at(global_transform.origin, Vector3.UP)
-
-# Анимационные функции (оставлены без изменений)
-func play_run_animation():
+# Анимационные функции
+func play_forward_animation():
 	if animation_player.current_animation != "slowRun":
 		animation_player.play("slowRun")
 
-func play_idle_animation():
-	if animation_player.current_animation != "idle":
-		animation_player.play("idle")
+func play_turn_left_animation():
+	if animation_player.current_animation != "turnLeft":
+		animation_player.play("turnLeft")
+
+func play_turn_right_animation():
+	if animation_player.current_animation != "turnRight":
+		animation_player.play("turnRight")
 
 func play_jump_animation():
 	if animation_player.current_animation != "jump":
@@ -131,3 +122,7 @@ func play_falling_animation():
 func play_falling_impact_animation():
 	if animation_player.current_animation != "fallingFlatImpact":
 		animation_player.play("fallingFlatImpact")
+
+func play_idle_animation():
+	if animation_player.current_animation != "idle":
+		animation_player.play("idle")
