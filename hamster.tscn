@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7o15soiogyi1"]
 
-[ext_resource type="ArrayMesh" uid="uid://dlk4w0pvj6cmo" path="res://Hamster_01.obj" id="1_en1un"]
+[ext_resource type="ArrayMesh" uid="uid://33aa1e8tpuhd" path="res://Hamster_01.obj" id="1_en1un"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_si8p3"]
 height = 0.944975

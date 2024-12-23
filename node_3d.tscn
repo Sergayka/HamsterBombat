@@ -1,4 +1,6 @@
-[gd_scene load_steps=84 format=3 uid="uid://dduirm5ychoe6"]
+
+[gd_scene load_steps=55 format=3 uid="uid://dduirm5ychoe6"]
+
 
 [ext_resource type="Script" path="res://node_3d.gd" id="1_kqbc8"]
 [ext_resource type="Texture2D" uid="uid://b2g26ghmcq4aw" path="res://kitchen items/textures/32543-skinali-7065.webp" id="2_qul0i"]
@@ -15,6 +17,17 @@
 [ext_resource type="Texture2D" uid="uid://c3ci03m6tv5p5" path="res://kitchen items/textures/Fridge_baseColor.png" id="12_qi6wa"]
 [ext_resource type="ArrayMesh" uid="uid://dcqiselffkql5" path="res://kitchen items/fartuc.obj" id="14_sy88m"]
 [ext_resource type="PackedScene" uid="uid://bh5v5otlpaheo" path="res://boy_animation.tscn" id="17_3w8bp"]
+
+[ext_resource type="Script" path="res://boy_animation.gd" id="18_h687n"]
+[ext_resource type="PackedScene" uid="uid://dcii2ewmeyo7q" path="res://intro_load.tscn" id="19_0iob1"]
+[ext_resource type="PackedScene" uid="uid://k2lmkwxetinc" path="res://blur.tscn" id="19_qchqo"]
+[ext_resource type="PackedScene" uid="uid://duvyteh2co1yy" path="res://PauseMenu.tscn" id="22_4bdlw"]
+[ext_resource type="Texture2D" uid="uid://76niaiieunxi" path="res://main_menu_src/btns/pause.png" id="22_n6yga"]
+[ext_resource type="PackedScene" uid="uid://c3r8rmlljj46s" path="res://inventory.tscn" id="23_l5dn0"]
+[ext_resource type="Texture2D" uid="uid://bp5wy4lweg6c0" path="res://main_menu_src/btns/pause hover.png" id="23_xm1ct"]
+[ext_resource type="Texture2D" uid="uid://de4w4pvbhcjcp" path="res://main_menu_src/btns/inventory.png" id="24_ceads"]
+[ext_resource type="Texture2D" uid="uid://c7nl6fygrdcn7" path="res://main_menu_src/btns/inventory hover.png" id="25_i6gjc"]
+
 [ext_resource type="AudioStream" uid="uid://d0gtsxpy7m47u" path="res://music.mp3" id="19_w22br"]
 [ext_resource type="ArrayMesh" uid="uid://cd338ulys2766" path="res://kitchen items/tarelka.obj" id="20_tl61y"]
 [ext_resource type="ArrayMesh" uid="uid://d0sny1suqwamt" path="res://bathroom_items/bathroommm/bathroommm.obj" id="21_5jikt"]
@@ -28,6 +41,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cgoe1vlhbv1iq" path="res://bedroom/cagey/ImageToStl.com_hamster_cage.obj" id="28_bb1ht"]
 [ext_resource type="ArrayMesh" uid="uid://chq4e42rwg7qx" path="res://kitchen items/walli.obj" id="29_dpwpd"]
 [ext_resource type="PackedScene" uid="uid://c0bmr6yjwjd6o" path="res://HamsterAnimV2.tscn" id="29_iw74a"]
+
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjpq4"]
 albedo_texture = ExtResource("2_qul0i")
@@ -191,6 +205,7 @@ size = Vector3(0.0224609, 1, 0.678284)
 [node name="Run Hammy Run" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000202179, 0.120209, 0.0114746)
 script = ExtResource("1_kqbc8")
+metadata/_edit_horizontal_guides_ = [14.0]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.7357, 25.1488, -21.3154)
@@ -927,6 +942,32 @@ shape = SubResource("BoxShape3D_gf7b4")
 transform = Transform3D(0.831324, 0, -0.555788, 0, 1, 0, 0.555788, 0, 0.831324, 4.96686, 0, 0.080048)
 shape = SubResource("BoxShape3D_3bw1c")
 
+[node name="Inventory" parent="CanvasLayer/Control" instance=ExtResource("23_l5dn0")]
+layout_mode = 1
+
+[node name="pause" type="TextureButton" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 185.0
+offset_bottom = 195.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("22_n6yga")
+texture_hover = ExtResource("23_xm1ct")
+
+[node name="inventory" type="TextureButton" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1086.0
+offset_top = 14.0
+offset_right = 1257.0
+offset_bottom = 195.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("24_ceads")
+texture_hover = ExtResource("25_i6gjc")
+
+[node name="intro_out" parent="." instance=ExtResource("19_0iob1")]
+visible = false
+
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Bedroom/Cage"]
 transform = Transform3D(0.831324, 0, -0.555788, 0, 1, 0, 0.555788, 0, 0.831324, 5.3383, 0, -0.475535)
 shape = SubResource("BoxShape3D_3bw1c")
@@ -935,9 +976,16 @@ shape = SubResource("BoxShape3D_3bw1c")
 transform = Transform3D(0.829788, 0, -0.558078, 0, 1, 0, 0.558078, 0, 0.829788, 5.31918, 0, -0.0833988)
 shape = SubResource("BoxShape3D_gd27j")
 
+
 [node name="main_character" parent="." instance=ExtResource("29_iw74a")]
 transform = Transform3D(-0.999042, 0.0437589, 0.000663193, 0.0437589, 0.999042, 0, -0.000662558, 2.90206e-05, -1, -142.457, 12.3734, -59.7952)
+
+
+[connection signal="pressed" from="CanvasLayer/Control/pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/inventory" to="." method="_on_inventory_pressed"]
+[connection signal="timeout" from="intro_out/Timer" to="." method="_on_timer_timeout"]
 
 [node name="CharacterBody3D2" parent="." instance=ExtResource("17_3w8bp")]
 transform = Transform3D(-0.999968, 0, 0.00794108, 0, 1, 0, -0.00794108, 0, -0.999968, -124.772, 5.37531, -23.62)
 main_character = NodePath("../main_character")
+

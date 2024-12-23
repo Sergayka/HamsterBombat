@@ -16,15 +16,18 @@ func _ready():
 	
 	$ColorRect.visible = false
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("skip"):
+		video_player.stop()
+		sergo_player.stop()
+		_on_timer_timeout()
+
 
 func _on_video_stream_player_finished() -> void:
 	$ColorRect.visible = true
 	$ColorRect/Timer.start()
-	print('time start')
 	
 
 func _on_timer_timeout() -> void:
-	print('time out')
-
 	get_tree().change_scene_to_file("res://node_3d.tscn")
 

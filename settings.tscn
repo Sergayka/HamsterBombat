@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://settings.gd" id="1_6ych0"]
 [ext_resource type="Texture2D" uid="uid://de1brnq8h2rfi" path="res://main_menu_src/settings.png" id="1_i0601"]
 [ext_resource type="FontFile" uid="uid://chvixsul1fv42" path="res://main_menu_src/samdan_cyrillic.ttf" id="2_b64in"]
-[ext_resource type="Texture2D" uid="uid://cmyyl5271hgsb" path="res://main_menu_src/btns/exit/exit.png" id="4_7q4rt"]
-[ext_resource type="Texture2D" uid="uid://dq3t3muyskj8i" path="res://main_menu_src/btns/exit/exit hover.png" id="5_tdmja"]
+[ext_resource type="Texture2D" uid="uid://chb8dlpapiqlw" path="res://main_menu_src/btns/back.png" id="4_m4inm"]
+[ext_resource type="Texture2D" uid="uid://q3e6irrqitpt" path="res://main_menu_src/btns/back hover.png" id="5_hmt00"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r2ihs"]
 line_spacing = 0.0
@@ -174,8 +174,8 @@ offset_top = 443.0
 offset_right = 1033.0
 offset_bottom = 624.0
 scale = Vector2(0.3, 0.3)
-texture_normal = ExtResource("4_7q4rt")
-texture_hover = ExtResource("5_tdmja")
+texture_normal = ExtResource("4_m4inm")
+texture_hover = ExtResource("5_hmt00")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
