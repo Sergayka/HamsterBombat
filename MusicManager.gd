@@ -23,7 +23,6 @@ func play_music():
 func toggle_music():
 	if music_player:
 		music_player.stream_paused = not music_player.stream_paused
-		
 
 func set_volume(volume: float):
 	if music_player:

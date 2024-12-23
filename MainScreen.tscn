@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b63ypi18poknm" path="res://main_menu_src/btns/exit/exit hover.png" id="11_jvoed"]
 [ext_resource type="PackedScene" uid="uid://clxr7vpn5wboc" path="res://loading.tscn" id="11_y38sq"]
 [ext_resource type="PackedScene" path="res://settings.tscn" id="12_eg60m"]
-[ext_resource type="PackedScene" path="res://intro_load.tscn" id="13_xqj8v"]
+[ext_resource type="PackedScene" uid="uid://b48q3nn0hl4p1" path="res://intro_load.tscn" id="13_xqj8v"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3eygt"]
 

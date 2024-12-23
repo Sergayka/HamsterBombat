@@ -10,3 +10,7 @@ extends Node3D
 #
 	## Воспроизведение музыки
 	#music_player.play()  # Музыка начнёт играть сразу после загрузки сцены
+
+func _process(delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		get_tree().quit()
