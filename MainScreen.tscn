@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://td583monbtma"]
+[gd_scene load_steps=17 format=3 uid="uid://td583monbtma"]
 
 [ext_resource type="Script" path="res://main_screen.gd" id="1_7flru"]
 [ext_resource type="FontFile" uid="uid://dosnnkfj2stao" path="res://main_menu_src/ofont.ru_Open Sans.ttf" id="1_sidu4"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dq3t3muyskj8i" path="res://main_menu_src/btns/exit/exit hover.png" id="11_jvoed"]
 [ext_resource type="PackedScene" uid="uid://clxr7vpn5wboc" path="res://loading.tscn" id="11_y38sq"]
 [ext_resource type="PackedScene" uid="uid://ion5tquw5a1p" path="res://settings.tscn" id="12_eg60m"]
+[ext_resource type="PackedScene" uid="uid://k2lmkwxetinc" path="res://blur.tscn" id="13_h5nht"]
 [ext_resource type="PackedScene" uid="uid://dcii2ewmeyo7q" path="res://intro_load.tscn" id="13_xqj8v"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3eygt"]
@@ -118,6 +119,9 @@ texture_normal = ExtResource("9_ly6b7")
 texture_pressed = ExtResource("9_ly6b7")
 texture_hover = ExtResource("11_jvoed")
 
+[node name="Blur" parent="." instance=ExtResource("13_h5nht")]
+layout_mode = 0
+
 [node name="loading" parent="." instance=ExtResource("11_y38sq")]
 visible = false
 layout_mode = 0
@@ -138,6 +142,7 @@ wait_time = 2.0
 layout_mode = 1
 
 [node name="intro_out" parent="." instance=ExtResource("13_xqj8v")]
+visible = false
 layout_mode = 0
 
 [node name="Timer" type="Timer" parent="intro_out"]

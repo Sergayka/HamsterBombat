@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dduirm5ychoe6"]
+[gd_scene load_steps=52 format=3 uid="uid://dduirm5ychoe6"]
 
 [ext_resource type="Script" path="res://node_3d.gd" id="1_kqbc8"]
 [ext_resource type="Texture2D" uid="uid://36r0j8urwepc" path="res://kitchen items/textures/32543-skinali-7065.webp" id="2_qul0i"]
@@ -19,6 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://bh5v5otlpaheo" path="res://boy_animation.tscn" id="17_3w8bp"]
 [ext_resource type="Script" path="res://boy_animation.gd" id="18_h687n"]
 [ext_resource type="PackedScene" uid="uid://dcii2ewmeyo7q" path="res://intro_load.tscn" id="19_0iob1"]
+[ext_resource type="PackedScene" uid="uid://k2lmkwxetinc" path="res://blur.tscn" id="19_qchqo"]
+[ext_resource type="Texture2D" uid="uid://cmyyl5271hgsb" path="res://main_menu_src/btns/exit/exit.png" id="20_vv322"]
+[ext_resource type="Texture2D" uid="uid://dq3t3muyskj8i" path="res://main_menu_src/btns/exit/exit hover.png" id="21_x2e78"]
+[ext_resource type="PackedScene" uid="uid://duvyteh2co1yy" path="res://PauseMenu.tscn" id="22_4bdlw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjpq4"]
 albedo_texture = ExtResource("2_qul0i")
@@ -558,9 +562,35 @@ omni_attenuation = 0.254
 transform = Transform3D(9.36488, 0, -0.0475638, 0, 9.365, 0, 0.0475638, 0, 9.36488, -52.4165, 4.87595, -39.8755)
 script = ExtResource("18_h687n")
 
+[node name="Blur" parent="." instance=ExtResource("19_qchqo")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="PauseMenu" parent="CanvasLayer/Control" instance=ExtResource("22_4bdlw")]
+layout_mode = 1
+offset_top = -600.0
+offset_bottom = -600.0
+
+[node name="pause" type="TextureButton" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 17.0
+offset_right = 554.0
+offset_bottom = 198.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("20_vv322")
+texture_hover = ExtResource("21_x2e78")
+
 [node name="intro_out" parent="." instance=ExtResource("19_0iob1")]
 
 [node name="Timer" type="Timer" parent="intro_out"]
 wait_time = 1.1
 
+[connection signal="pressed" from="CanvasLayer/Control/pause" to="." method="_on_pause_pressed"]
 [connection signal="timeout" from="intro_out/Timer" to="." method="_on_timer_timeout"]
