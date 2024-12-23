@@ -1,7 +1,9 @@
-[gd_scene load_steps=19 format=4 uid="uid://c0bmr6yjwjd6o"]
+[gd_scene load_steps=21 format=4 uid="uid://c0bmr6yjwjd6o"]
 
 [ext_resource type="Script" path="res://HamsterAminV2.gd" id="1_py5lx"]
 [ext_resource type="Texture2D" uid="uid://dsc5p1lwa1omb" path="res://HamsterAnimV1_Hamster_01.png" id="2_gubgr"]
+[ext_resource type="AudioStream" uid="uid://e3mi0b6p5dd7" path="res://slowRun.mp3" id="3_dgdks"]
+[ext_resource type="AudioStream" uid="uid://dlv4qb0200ca7" path="res://fastRun.mp3" id="4_c1qfe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uayfc"]
 resource_name = "acmat_0.002"
@@ -2702,3 +2704,9 @@ target_position = Vector3(0, -2.43, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.999999, -0.00169297, 0, 0.00169297, 0.999999, -0.00929394, 0.174074, -0.0278698)
 shape = SubResource("CapsuleShape3D_bhioc")
+
+[node name="AudioStreamPlayer_slowRun" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_dgdks")
+
+[node name="AudioStreamPlayer_fastRun" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_c1qfe")
