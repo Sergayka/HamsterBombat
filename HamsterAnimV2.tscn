@@ -2697,9 +2697,7 @@ transform = Transform3D(-0.99922, 8.73546e-08, -0.0394865, -0.00212909, 0.998545
 rotation_order = 0
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(0.635, 0, 0, 0, 0.635, 0, 0, 0, 0.635, 0, 0.0618487, 0.139518)
-exclude_parent = false
-target_position = Vector3(0, -2.43, 0)
+transform = Transform3D(0.635, 0, 0, 0, 0.635, 0, 0, 0, 0.635, 0, 0.345513, 0.31366)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.999999, -0.00169297, 0, 0.00169297, 0.999999, -0.00929394, 0.174074, -0.0278698)

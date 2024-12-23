@@ -942,4 +942,4 @@ transform = Transform3D(0.829788, 0, -0.558078, 0, 1, 0, 0.558078, 0, 0.829788, 
 shape = SubResource("BoxShape3D_gd27j")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("29_iw74a")]
-transform = Transform3D(-0.999042, 0.0437589, 0.000663193, 0.0437589, 0.999042, 0, -0.000662558, 2.90206e-05, -1, -127.816, 5.06942, -22.5235)
+transform = Transform3D(-0.999042, 0.0437589, 0.000663193, 0.0437589, 0.999042, 0, -0.000662558, 2.90206e-05, -1, -142.457, 12.3734, -59.7952)
