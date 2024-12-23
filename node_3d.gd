@@ -44,4 +44,3 @@ func _on_inventory_pressed() -> void:
 		$CanvasLayer/Control/Inventory/AnimationPlayer.play("in")
 		$CanvasLayer/Control/pause.visible = false
 		$CanvasLayer/Control/inventory.visible = false
-
