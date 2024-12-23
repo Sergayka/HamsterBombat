@@ -11,6 +11,23 @@ extends Node3D
 	## Воспроизведение музыки
 	#music_player.play()  # Музыка начнёт играть сразу после загрузки сцены
 
-func _process(delta):
-	if Input.is_action_just_pressed("ui_cancel"):
-		get_tree().quit()
+
+func _ready() -> void:
+	$intro_out/AnimationPlayer.play("intro_out")
+	$intro_out/Timer.start()
+	
+	MusicManager.toggle_music()
+	
+	$Blur.visible = false
+
+
+func _on_timer_timeout() -> void:
+	$intro_out.visible = false
+
+
+func _on_pause_pressed() -> void:
+	$Blur.visible = true
+	$Blur/AnimationPlayer.play('blur_in')
+	$CanvasLayer/Control/PauseMenu/AnimationPlayer.play("in")
+
+
