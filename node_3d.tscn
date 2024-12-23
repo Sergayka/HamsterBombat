@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://dduirm5ychoe6"]
+[gd_scene load_steps=55 format=3 uid="uid://dduirm5ychoe6"]
 
 [ext_resource type="Script" path="res://node_3d.gd" id="1_kqbc8"]
 [ext_resource type="Texture2D" uid="uid://36r0j8urwepc" path="res://kitchen items/textures/32543-skinali-7065.webp" id="2_qul0i"]
@@ -20,9 +20,12 @@
 [ext_resource type="Script" path="res://boy_animation.gd" id="18_h687n"]
 [ext_resource type="PackedScene" uid="uid://dcii2ewmeyo7q" path="res://intro_load.tscn" id="19_0iob1"]
 [ext_resource type="PackedScene" uid="uid://k2lmkwxetinc" path="res://blur.tscn" id="19_qchqo"]
-[ext_resource type="Texture2D" uid="uid://cmyyl5271hgsb" path="res://main_menu_src/btns/exit/exit.png" id="20_vv322"]
-[ext_resource type="Texture2D" uid="uid://dq3t3muyskj8i" path="res://main_menu_src/btns/exit/exit hover.png" id="21_x2e78"]
 [ext_resource type="PackedScene" uid="uid://duvyteh2co1yy" path="res://PauseMenu.tscn" id="22_4bdlw"]
+[ext_resource type="Texture2D" uid="uid://76niaiieunxi" path="res://main_menu_src/btns/pause.png" id="22_n6yga"]
+[ext_resource type="PackedScene" uid="uid://c3r8rmlljj46s" path="res://inventory.tscn" id="23_l5dn0"]
+[ext_resource type="Texture2D" uid="uid://bp5wy4lweg6c0" path="res://main_menu_src/btns/pause hover.png" id="23_xm1ct"]
+[ext_resource type="Texture2D" uid="uid://de4w4pvbhcjcp" path="res://main_menu_src/btns/inventory.png" id="24_ceads"]
+[ext_resource type="Texture2D" uid="uid://c7nl6fygrdcn7" path="res://main_menu_src/btns/inventory hover.png" id="25_i6gjc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjpq4"]
 albedo_texture = ExtResource("2_qul0i")
@@ -110,6 +113,7 @@ size = Vector3(7.39015, 0.397816, 26.4437)
 
 [node name="Run Hammy Run" type="Node3D"]
 script = ExtResource("1_kqbc8")
+metadata/_edit_horizontal_guides_ = [14.0]
 
 [node name="Main_StaticBody" type="StaticBody3D" parent="."]
 transform = Transform3D(0.845543, 0, 0, 0, 0.845543, 0, 0, 0, 0.845543, 0, 0, 0)
@@ -577,20 +581,35 @@ layout_mode = 1
 offset_top = -600.0
 offset_bottom = -600.0
 
+[node name="Inventory" parent="CanvasLayer/Control" instance=ExtResource("23_l5dn0")]
+layout_mode = 1
+
 [node name="pause" type="TextureButton" parent="CanvasLayer/Control"]
 layout_mode = 0
 offset_left = 14.0
-offset_top = 17.0
-offset_right = 554.0
-offset_bottom = 198.0
+offset_top = 14.0
+offset_right = 185.0
+offset_bottom = 195.0
 scale = Vector2(0.3, 0.3)
-texture_normal = ExtResource("20_vv322")
-texture_hover = ExtResource("21_x2e78")
+texture_normal = ExtResource("22_n6yga")
+texture_hover = ExtResource("23_xm1ct")
+
+[node name="inventory" type="TextureButton" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1086.0
+offset_top = 14.0
+offset_right = 1257.0
+offset_bottom = 195.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("24_ceads")
+texture_hover = ExtResource("25_i6gjc")
 
 [node name="intro_out" parent="." instance=ExtResource("19_0iob1")]
+visible = false
 
 [node name="Timer" type="Timer" parent="intro_out"]
 wait_time = 1.1
 
 [connection signal="pressed" from="CanvasLayer/Control/pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/inventory" to="." method="_on_inventory_pressed"]
 [connection signal="timeout" from="intro_out/Timer" to="." method="_on_timer_timeout"]
