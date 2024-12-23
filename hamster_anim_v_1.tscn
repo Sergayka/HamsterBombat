@@ -1,6 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://dfv381qvntlvc"]
 
+
 [ext_resource type="PackedScene" uid="uid://2hexw1q801vq" path="res://HamsterAnimV1.glb" id="1_y3by2"]
+
 
 [node name="HamsterAnimV1" instance=ExtResource("1_y3by2")]
 
@@ -36,10 +38,9 @@ bones/30/rotation = Quaternion(0.356746, -0.01523, -0.0207125, 0.933848)
 bones/31/rotation = Quaternion(0.43373, -0.0265366, 0.00916934, 0.900605)
 
 [node name="Camera3D" type="Camera3D" parent="." index="2"]
-transform = Transform3D(-1, 8.74228e-08, 2.46841e-14, 7.72191e-08, 0.883283, -0.468839, -4.09873e-08, -0.468839, -0.883283, -0.0355964, 0.271948, -0.470931)
+transform = Transform3D(-0.99922, -0.00212909, -0.0394291, 8.72956e-08, 0.998545, -0.0539216, 0.0394865, -0.0538795, -0.997766, -0.0355964, 1.06159, -1.5915)
 fov = 86.1011
 
 [node name="RayCast3D" type="RayCast3D" parent="." index="3"]
 transform = Transform3D(0.635, 0, 0, 0, 0.635, 0, 0, 0, 0.635, 0, 0.0618487, 0.139518)
-visible = false
 exclude_parent = false

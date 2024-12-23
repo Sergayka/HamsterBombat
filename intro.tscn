@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cybeix5dd362f"]
+
+[ext_resource type="VideoStream" path="res://videos/video.ogv" id="1_h0xs1"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 916.0
+offset_bottom = 411.0
+stream = ExtResource("1_h0xs1")
+volume_db = 3.75
