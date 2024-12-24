@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://bjdj8mkk8aagf"]
+
+[ext_resource type="PackedScene" uid="uid://k2lmkwxetinc" path="res://blur.tscn" id="1_1tu76"]
+[ext_resource type="PackedScene" uid="uid://duvyteh2co1yy" path="res://PauseMenu.tscn" id="2_hvns8"]
+[ext_resource type="PackedScene" uid="uid://c3r8rmlljj46s" path="res://inventory.tscn" id="3_ksxwp"]
+[ext_resource type="Texture2D" uid="uid://cd7hu06ulws75" path="res://main_menu_src/btns/pause.png" id="4_gr2qd"]
+[ext_resource type="Texture2D" uid="uid://dn3rtytufumpc" path="res://main_menu_src/btns/pause hover.png" id="5_kowxl"]
+[ext_resource type="Texture2D" uid="uid://dn001m3fis35r" path="res://main_menu_src/btns/inventory.png" id="6_4g0u6"]
+[ext_resource type="Texture2D" uid="uid://d03ry7xr7rkxw" path="res://main_menu_src/btns/inventory hover.png" id="7_pyu1r"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Blur" parent="." instance=ExtResource("1_1tu76")]
+layout_mode = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="PauseMenu" parent="CanvasLayer/Control" instance=ExtResource("2_hvns8")]
+layout_mode = 1
+offset_top = -600.0
+offset_bottom = -600.0
+
+[node name="Inventory" parent="CanvasLayer/Control" instance=ExtResource("3_ksxwp")]
+layout_mode = 1
+
+[node name="pause" type="TextureButton" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 185.0
+offset_bottom = 195.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("4_gr2qd")
+texture_hover = ExtResource("5_kowxl")
+
+[node name="inventory" type="TextureButton" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1086.0
+offset_top = 14.0
+offset_right = 1257.0
+offset_bottom = 195.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("6_4g0u6")
+texture_hover = ExtResource("7_pyu1r")

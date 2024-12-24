@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://settings.gd" id="1_6ych0"]
 [ext_resource type="Texture2D" uid="uid://de1brnq8h2rfi" path="res://main_menu_src/settings.png" id="1_i0601"]
 [ext_resource type="FontFile" uid="uid://chvixsul1fv42" path="res://main_menu_src/samdan_cyrillic.ttf" id="2_b64in"]
-[ext_resource type="Texture2D" uid="uid://cmyyl5271hgsb" path="res://main_menu_src/btns/exit/exit.png" id="4_7q4rt"]
-[ext_resource type="Texture2D" uid="uid://dq3t3muyskj8i" path="res://main_menu_src/btns/exit/exit hover.png" id="5_tdmja"]
+[ext_resource type="Texture2D" uid="uid://chb8dlpapiqlw" path="res://main_menu_src/btns/back.png" id="4_m4inm"]
+[ext_resource type="Texture2D" uid="uid://q3e6irrqitpt" path="res://main_menu_src/btns/back hover.png" id="5_hmt00"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r2ihs"]
 line_spacing = 0.0
@@ -40,24 +40,8 @@ tracks/0/keys = {
 "values": [Vector2(0, -600)]
 }
 
-[sub_resource type="Animation" id="Animation_dda66"]
-resource_name = "sett_in"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(4, 1),
-"update": 0,
-"values": [Vector2(0, -550), Vector2(0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_s5b44"]
-resource_name = "sett_out"
+resource_name = "out"
 length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -72,11 +56,27 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, -550)]
 }
 
+[sub_resource type="Animation" id="Animation_dda66"]
+resource_name = "in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(4, 1),
+"update": 0,
+"values": [Vector2(0, -550), Vector2(0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e2070"]
 _data = {
 "RESET": SubResource("Animation_ygnut"),
-"sett_in": SubResource("Animation_dda66"),
-"sett_out": SubResource("Animation_s5b44")
+"in": SubResource("Animation_dda66"),
+"out": SubResource("Animation_s5b44")
 }
 
 [node name="Settings" type="Control"]
@@ -84,8 +84,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -600.0
-offset_bottom = -600.0
+offset_top = -550.0
+offset_bottom = -550.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6ych0")
@@ -174,8 +174,8 @@ offset_top = 443.0
 offset_right = 1033.0
 offset_bottom = 624.0
 scale = Vector2(0.3, 0.3)
-texture_normal = ExtResource("4_7q4rt")
-texture_hover = ExtResource("5_tdmja")
+texture_normal = ExtResource("4_m4inm")
+texture_hover = ExtResource("5_hmt00")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -184,6 +184,5 @@ libraries = {
 
 [connection signal="value_changed" from="VBoxContainer/Volume" to="." method="_on_volume_value_changed"]
 [connection signal="pressed" from="VBoxContainer/Mute" to="." method="_on_check_box_pressed"]
-[connection signal="toggled" from="VBoxContainer/Mute" to="." method="_on_check_box_toggled"]
 [connection signal="item_selected" from="VBoxContainer/Resolutions" to="." method="_on_resolutions_item_selected"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

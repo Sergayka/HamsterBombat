@@ -1,0 +1,283 @@
+[gd_scene load_steps=15 format=3 uid="uid://u7ktl46enck8"]
+
+[ext_resource type="Script" path="res://start_load.gd" id="1_pgvye"]
+[ext_resource type="FontFile" uid="uid://dc0p55arya3mu" path="res://main_menu_src/PressStart2P-Regular.ttf" id="1_v32xw"]
+[ext_resource type="Texture2D" uid="uid://b5eks23w3k8b8" path="res://main_menu_src/textures/made_with.png" id="3_rpdly"]
+[ext_resource type="Texture2D" uid="uid://dia5221dcmyw2" path="res://main_menu_src/textures/logo_neon.png" id="5_5l1f0"]
+[ext_resource type="Texture2D" uid="uid://b47r5l0ngp5wn" path="res://main_menu_src/textures/logo.png" id="5_qoh2n"]
+[ext_resource type="Texture2D" uid="uid://dlq0vs6wxum8k" path="res://main_menu_src/textures/godot.png" id="6_d1ufc"]
+[ext_resource type="Texture2D" uid="uid://bysiqy3iib3lo" path="res://main_menu_src/textures/by.png" id="7_w2gcn"]
+[ext_resource type="Texture2D" uid="uid://b3gqs55216ihw" path="res://main_menu_src/textures/ham_logo.png" id="8_r4ati"]
+[ext_resource type="Texture2D" uid="uid://cwswdpifxjiut" path="res://main_menu_src/textures/ham_neon.png" id="9_3f44q"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p5lot"]
+particle_flag_disable_z = true
+flatness = 1.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qnti8"]
+font_size = 36
+
+[sub_resource type="Animation" id="Animation_pnhvn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("madewith:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("godot_logo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("godot:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("by:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ham_logo:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect2:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gp6lm"]
+resource_name = "load"
+length = 14.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("madewith:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(3.68476, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("godot_logo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 4),
+"transitions": PackedFloat32Array(4, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("godot:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3, 5),
+"transitions": PackedFloat32Array(4, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("by:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4.5, 6.5),
+"transitions": PackedFloat32Array(4, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ham_logo:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(6.5, 9.1),
+"transitions": PackedFloat32Array(4, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect2:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(12, 14),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nen23"]
+_data = {
+"RESET": SubResource("Animation_pnhvn"),
+"load": SubResource("Animation_gp6lm")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_pgvye")
+metadata/_edit_vertical_guides_ = [576.0]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="madewith" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(3, 3, 3, 1)
+offset_left = 366.0
+offset_top = 40.0
+offset_right = 787.0
+offset_bottom = 123.0
+theme_override_fonts/font = ExtResource("1_v32xw")
+theme_override_font_sizes/font_size = 34
+text = "MADE WITH"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="madewith"]
+modulate = Color(1, 1, 1, 0.00784314)
+position = Vector2(208, 40)
+process_material = SubResource("ParticleProcessMaterial_p5lot")
+texture = ExtResource("3_rpdly")
+
+[node name="godot_logo" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 510.0
+offset_top = 134.0
+offset_right = 644.0
+offset_bottom = 259.0
+texture = ExtResource("5_qoh2n")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="godot_logo"]
+modulate = Color(1, 1, 1, 0.0117647)
+position = Vector2(67, 60)
+process_material = SubResource("ParticleProcessMaterial_p5lot")
+texture = ExtResource("5_5l1f0")
+
+[node name="godot" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(3, 3, 3, 1)
+offset_left = 366.0
+offset_top = 274.0
+offset_right = 787.0
+offset_bottom = 357.0
+theme_override_fonts/font = ExtResource("1_v32xw")
+theme_override_font_sizes/font_size = 34
+text = "GODOT"
+label_settings = SubResource("LabelSettings_qnti8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="godot"]
+modulate = Color(1, 1, 1, 0.00784314)
+position = Vector2(208, 40)
+process_material = SubResource("ParticleProcessMaterial_p5lot")
+texture = ExtResource("6_d1ufc")
+
+[node name="by" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(3, 3, 3, 1)
+offset_left = 366.0
+offset_top = 338.0
+offset_right = 787.0
+offset_bottom = 421.0
+theme_override_fonts/font = ExtResource("1_v32xw")
+theme_override_font_sizes/font_size = 34
+text = "BY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="by"]
+modulate = Color(1, 1, 1, 0.00784314)
+position = Vector2(208, 40)
+process_material = SubResource("ParticleProcessMaterial_p5lot")
+texture = ExtResource("7_w2gcn")
+
+[node name="ham_logo" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 280.0
+offset_top = 439.0
+offset_right = 873.0
+offset_bottom = 564.0
+texture = ExtResource("8_r4ati")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="ham_logo"]
+modulate = Color(1, 1, 1, 0.00784314)
+position = Vector2(297, 65)
+process_material = SubResource("ParticleProcessMaterial_p5lot")
+texture = ExtResource("9_3f44q")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nen23")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

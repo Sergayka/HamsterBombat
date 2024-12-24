@@ -1,7 +1,5 @@
 extends Control
 
-@onready var animaton_player = $AnimationPlayer
-
 func _ready():
 	$VBoxContainer/Volume.value = MusicManager.music_player.volume_db
 
@@ -26,5 +24,13 @@ func _on_resolutions_item_selected(index: int) -> void:
 
 
 func _on_back_pressed() -> void:
-	$AnimationPlayer.play("sett_out")
+	var blur = get_parent().get_node("Blur");
+	var blur_player = blur.get_node("AnimationPlayer");
+	blur_player.play("blur_out");
+	$AnimationPlayer.play("out");
 	
+
+func _on_blur_animation_finished(anim_name: String) -> void:
+	if anim_name == "blur_out":
+		var blur = get_parent().get_node("Blur")
+		blur.visible = false

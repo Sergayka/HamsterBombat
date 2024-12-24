@@ -1,116 +1,178 @@
 extends CharacterBody3D
 
+# Экспортируемые переменные для настройки через инспектор
 @export var animation_player: AnimationPlayer
-@export var move_speed: float = 5.0  # Скорость движения хомяка
-@export var jump_strength: float = 10.0  # Сила прыжка
-@export var gravity: float = 30.0  # Сила гравитации
-@export var raycast: RayCast3D  # RayCast для проверки земли
+@export var move_speed: float = 5.0               # Обычная скорость
+@export var run_speed: float = 8.0                # Скорость при ускорении
+@export var jump_strength: float = 10.0
+@export var gravity: float = 30.0
+@export var raycast: RayCast3D
 
-@export var camera: Camera3D  # Камера хомяка
-@export var camera_distance: float = -1.0  # Расстояние камеры от хомяка
-@export var camera_height: float = 0.5  # Высота камеры относительно хомяка
-@export var camera_offset_angle: float = 5.2  # Угол наклона камеры в градусах
+@export var camera: Camera3D
+@export var camera_distance: float = -2.5          # Расстояние камеры за хомяком
+@export var camera_height: float = 1.5            # Высота камеры
 
-var vertical_velocity = 0.0  # Вертикальная скорость для прыжка
+@export var mouse_sensitivity: float = 0.2
+@export var max_yaw: float = 360.0
+@export var min_yaw: float = 0.0
+
+@export var turning_duration: float = 0.2        # Продолжительность анимации поворота после движения мышью
+
+# Добавляем экспортируемые переменные для звуковых эффектов
+@export var slow_run_sound: AudioStream
+@export var fast_run_sound: AudioStream
+
+var vertical_velocity = 0.0
 var is_falling = false
+var yaw: float = 0.0
+
+# Переменная для управления таймером анимации поворота
+var turning_timer: float = 0.0
+
+
+var audio_slow_run: AudioStreamPlayer
+var audio_fast_run: AudioStreamPlayer
 
 func _ready():
+	# Инициализация AnimationPlayer, RayCast3D и Camera3D, если они не назначены
 	if animation_player == null:
 		animation_player = $AnimationPlayer
-		
-	# Убедимся, что RayCast3D подключен
+	
 	if raycast == null:
 		raycast = $RayCast3D
-
-	# Проверяем, что камера и другие компоненты правильно подключены
+	
 	if camera == null:
-		print("Camera3D не назначена!")
+		camera = $Camera3D
+		if camera == null:
+			print("Camera3D не назначена!")
 	else:
 		print("Camera3D найдена!")
+		
+	# Инициализация AudioStreamPlayer
+	audio_slow_run = $AudioStreamPlayer_slowRun
+	audio_fast_run = $AudioStreamPlayer_fastRun
 
-# Функция обновления игры каждый кадр
-func _process(delta):
-	var move_direction = Vector3.ZERO
-
-	# Получаем ввод от игрока
-	if Input.is_action_pressed("move_forward"):
-		move_direction.z += 1
-	if Input.is_action_pressed("move_back"):
-		move_direction.z -= 1
-
-	# Нормализуем вектор, чтобы движение было равномерным
-	if move_direction != Vector3.ZERO:
-		move_direction = move_direction.normalized()
-
-	# Преобразуем локальное направление в глобальное
-	move_direction = global_transform.basis * move_direction
-
-	# Проверка на прыжок
-	if is_on_ground() and Input.is_action_just_pressed("jump"):
-		vertical_velocity = jump_strength
-		play_jump_animation()
-
-	# Обновляем вертикальную скорость (гравитация)
-	if not is_on_ground():
-		vertical_velocity -= gravity * delta  # Применяем гравитацию
-		is_falling = true
-		play_falling_animation()
+	# Назначение звуковых файлов через экспортируемые переменные
+	if slow_run_sound != null:
+		audio_slow_run.stream = slow_run_sound
 	else:
-		if vertical_velocity < 0:
-			vertical_velocity = 0  # Сбрасываем вертикальную скорость при приземлении
-		if is_falling:
-			play_falling_impact_animation()
-		is_falling = false
+		print("slow_run_sound не назначен!")
 
-	# Логирование скорости
-	print("Velocity: ", move_direction * move_speed + Vector3(0, vertical_velocity, 0))
-
-	# Обновляем скорость
-	velocity = move_direction * move_speed  # Составляем горизонтальную скорость
-	velocity.y = vertical_velocity  # Добавляем вертикальную скорость
-
-	# Перемещаем хомяка с учетом коллизий и вертикальной скорости
-	move_and_slide()
-
-	# Обновляем анимацию
-	if move_direction != Vector3.ZERO:
-		play_run_animation()
+	if fast_run_sound != null:
+		audio_fast_run.stream = fast_run_sound
 	else:
-		if not is_falling:
-			play_idle_animation()
+		print("fast_run_sound не назначен!")
+	
+	# Захватываем мышь для управления камерой
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-	# Повороты
-	if Input.is_action_pressed("move_right"):
-		turn_right(delta)
-	if Input.is_action_pressed("move_left"):
-		turn_left(delta)
+func _unhandled_input(event):
+	if event is InputEventMouseMotion:
+		# Поворачиваем хомяка по горизонтали на основе движения мыши
+		yaw -= event.relative.x * mouse_sensitivity * 0.005  # Регулируем чувствительность
+		
+		# Ограничиваем yaw в диапазоне [0, 2π)
+		yaw = wrapf(yaw, 0, 2 * PI)
+		rotation.y = yaw
 
-	# Обновление позиции камеры
-	if camera != null:
+		# Обновляем позицию камеры
 		update_camera_position()
 
-# Проверка на землю
+		# Определяем направление поворота и воспроизводим соответствующую анимацию
+		#if event.relative.x > 0:
+			#play_turn_right_animation()
+		#elif event.relative.x < 0:
+			#play_turn_left_animation()
+		
+		# Сбрасываем таймер поворота
+		turning_timer = turning_duration
+
+func _process(delta):
+	var is_moving_forward = Input.is_action_pressed("move_forward")
+	var is_jumping = Input.is_action_just_pressed("jump")
+	var is_running = Input.is_action_pressed("run")  # Проверяем, нажата ли клавиша run (Shift)
+	
+	# Выбор скорости движения
+	var current_speed = move_speed
+	if is_running:
+		current_speed = run_speed
+	
+	# Обработка движения вперед
+	var move_direction = Vector3.ZERO
+	if is_moving_forward:
+		# Движение вперед по направлению +Z
+		move_direction = transform.basis.z.normalized()
+	
+	if move_direction != Vector3.ZERO:
+		velocity = move_direction * current_speed
+	else:
+		velocity = Vector3.ZERO
+
+	# Обработка прыжка
+	if is_on_ground():
+		if is_jumping:
+			vertical_velocity = jump_strength
+			play_jump_animation()
+	else:
+		vertical_velocity -= gravity * delta
+		is_falling = true
+		play_falling_animation()
+	
+	if is_on_ground() and is_falling:
+		if vertical_velocity < 0:
+			vertical_velocity = 0
+		play_falling_impact_animation()
+		is_falling = false
+
+	velocity.y = vertical_velocity
+
+	# Применяем движение
+	move_and_slide()
+
+  # Обработка анимаций и звуков
+	if turning_timer > 0:
+		# В процессе поворота, анимация уже установлена в _unhandled_input
+		turning_timer -= delta
+	else:
+	# После завершения поворота, переключаемся на анимацию движения или покоя
+		if is_moving_forward:
+			if is_running:
+				play_fast_run_animation()
+				play_running_sound(true, false)  # Воспроизводим fastRun звук
+			else:
+				play_forward_animation()
+				play_running_sound(false, true)  # Воспроизводим slowRun звук
+		else:
+			if not is_falling:
+				play_idle_animation()
+				stop_running_sound()  # Останавливаем все беговые звуки
+
 func is_on_ground() -> bool:
 	return raycast.is_colliding()
 
-# Обновление позиции камеры
 func update_camera_position():
-	if camera != null:
-		var angle_in_radians = deg_to_rad(camera_offset_angle)
-		var offset = Vector3(0, camera_height, camera_distance)
-		offset = offset.rotated(Vector3.UP, rotation.y)
-		offset = offset.rotated(Vector3.RIGHT, angle_in_radians)
-		camera.transform.origin = position + offset
-		camera.look_at(position, Vector3.UP)
+	if camera:
+		# Позиционируем камеру позади хомяка по +Z
+		var camera_position = global_transform.origin + transform.basis.z * camera_distance + Vector3(0, camera_height, 0)
+		camera.global_transform.origin = camera_position
+		camera.look_at(global_transform.origin + Vector3(0, camera_height, 0), Vector3.UP)
 
-# Функции для анимаций
-func play_run_animation():
+# Анимационные функции
+func play_forward_animation():
 	if animation_player.current_animation != "slowRun":
 		animation_player.play("slowRun")
 
-func play_idle_animation():
-	if animation_player.current_animation != "idle":
-		animation_player.play("idle")
+func play_fast_run_animation():
+	if animation_player.current_animation != "fastRun":
+		animation_player.play("fastRun")
+
+func play_turn_left_animation():
+	if animation_player.current_animation != "turnLeft":
+		animation_player.play("turnLeft")
+
+func play_turn_right_animation():
+	if animation_player.current_animation != "turnRight":
+		animation_player.play("turnRight")
 
 func play_jump_animation():
 	if animation_player.current_animation != "jump":
@@ -121,16 +183,23 @@ func play_falling_animation():
 		animation_player.play("falling")
 
 func play_falling_impact_animation():
-	if animation_player.current_animation != "fallingFlatImapct":
-		animation_player.play("fallingFlatImapct")
+	if animation_player.current_animation != "fallingFlatImpact":
+		animation_player.play("fallingFlatImpact")
 
-# Повороты
-func turn_right(delta):
-	rotation.y -= 5.0 * delta  # Поворот направо (на основе времени)
-	if animation_player.current_animation != "turnRight":
-		animation_player.play("turnRight")
+func play_idle_animation():
+	if animation_player.current_animation != "idle":
+		animation_player.play("idle")
+		
+		
+# Функции для управления звуками
+func play_running_sound(is_fast: bool, is_slow: bool):
+	if is_fast and !audio_fast_run.playing:
+		audio_fast_run.play()
+	elif is_slow and !audio_slow_run.playing:
+		audio_slow_run.play()
 
-func turn_left(delta):
-	rotation.y += 5.0 * delta  # Поворот налево (на основе времени)
-	if animation_player.current_animation != "turnLeft":
-		animation_player.play("turnLeft")
+func stop_running_sound():
+	if audio_fast_run.playing:
+		audio_fast_run.stop()
+	if audio_slow_run.playing:
+		audio_slow_run.stop()

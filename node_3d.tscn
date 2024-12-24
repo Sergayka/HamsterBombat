@@ -1,4 +1,6 @@
-[gd_scene load_steps=111 format=3 uid="uid://dduirm5ychoe6"]
+
+[gd_scene load_steps=84 format=3 uid="uid://dduirm5ychoe6"]
+
 
 [ext_resource type="Script" path="res://node_3d.gd" id="1_kqbc8"]
 [ext_resource type="Texture2D" uid="uid://fx0jfqkm5k6g" path="res://kitchen items/textures/32543-skinali-7065.webp" id="2_qul0i"]
@@ -15,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://b3ywq06a1jm5" path="res://kitchen items/textures/Fridge_baseColor.png" id="12_qi6wa"]
 [ext_resource type="ArrayMesh" uid="uid://bvfh1dqyagkxr" path="res://kitchen items/fartuc.obj" id="14_sy88m"]
 [ext_resource type="PackedScene" uid="uid://bh5v5otlpaheo" path="res://boy_animation.tscn" id="17_3w8bp"]
+
 [ext_resource type="Script" path="res://boy_animation.gd" id="18_h687n"]
 [ext_resource type="AudioStream" uid="uid://cwefnpo1w06w5" path="res://music.mp3" id="19_w22br"]
 [ext_resource type="ArrayMesh" uid="uid://bunou8jkibkl0" path="res://kitchen items/tarelka.obj" id="20_tl61y"]
@@ -28,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://bis75fk8412e3" path="res://kitchen items/textures/material_19_specularf0.png" id="28_2nvo8"]
 [ext_resource type="ArrayMesh" uid="uid://0fbwipqyhqce" path="res://bedroom/cagey/ImageToStl.com_hamster_cage.obj" id="28_bb1ht"]
 [ext_resource type="ArrayMesh" uid="uid://dviwl5xukas6i" path="res://kitchen items/walli.obj" id="29_dpwpd"]
+
 [ext_resource type="PackedScene" uid="uid://c0bmr6yjwjd6o" path="res://HamsterAnimV2.tscn" id="29_iw74a"]
 [ext_resource type="PackedScene" uid="uid://5lc0780unnqh" path="res://bedroom/bedr/frame.glb" id="29_rvs0e"]
 
@@ -269,6 +273,7 @@ size = Vector3(193.244, 9.3728, 265.251)
 [node name="Run Hammy Run" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000202179, 0.120209, 0.0114746)
 script = ExtResource("1_kqbc8")
+metadata/_edit_horizontal_guides_ = [14.0]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.7357, 25.1488, -21.3154)
@@ -277,11 +282,6 @@ light_indirect_energy = 6.435
 light_volumetric_fog_energy = 7.7
 omni_range = 138.197
 omni_attenuation = 0.254
-
-[node name="boyAnimation" parent="." instance=ExtResource("17_3w8bp")]
-transform = Transform3D(9.36488, 0, -0.0475638, 0, 9.365, 0, 0.0475638, 0, 9.36488, -52.4165, 4.87595, -39.8755)
-visible = false
-script = ExtResource("18_h687n")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_w22br")
@@ -1199,3 +1199,11 @@ mesh = SubResource("BoxMesh_qgatn")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ceiling/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.9171, 37.3146, 27.9597)
 shape = SubResource("BoxShape3D_gqvhv")
+
+[node name="main_character" parent="." instance=ExtResource("29_iw74a")]
+transform = Transform3D(-0.999042, 0.0437589, 0.000663193, 0.0437589, 0.999042, 0, -0.000662558, 2.90206e-05, -1, -142.457, 12.3734, -59.7952)
+
+[node name="CharacterBody3D2" parent="." instance=ExtResource("17_3w8bp")]
+transform = Transform3D(-0.999968, 0, 0.00794108, 0, 1, 0, -0.00794108, 0, -0.999968, -124.772, 5.37531, -23.62)
+main_character = NodePath("../main_character")
+
