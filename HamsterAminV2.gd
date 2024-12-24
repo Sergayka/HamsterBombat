@@ -30,7 +30,7 @@ var audio_slow_run: AudioStreamPlayer
 var is_jumping = false  # Флаг для отслеживания состояния прыжка
 
 # Добавляем инвентарь
-var inventory: Array = []  # Массив для хранения предметов
+var inventory: Array = ["key"]  # Массив для хранения предметов
 
 func _ready():
 	# Инициализация AnimationPlayer, RayCast3D и Camera3D, если они не назначены

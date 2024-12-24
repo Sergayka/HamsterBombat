@@ -4,6 +4,10 @@ var is_near_door = false  # Флаг для отслеживания близо�
 
 @onready var ray_cast_to_door = $main_character/RayCastToDoor
 @onready var interaction_hint = $CanvasLayer/Control/InteractionHint
+@onready var main_character = $main_character  # Предполагаем, что это узел сцены главного персонажа
+
+var notification_label: Label
+
 
 func _ready() -> void:
 	if not interaction_hint:
@@ -14,6 +18,22 @@ func _ready() -> void:
 		var screen_center = get_viewport().size / 2
 		var label_half_size = interaction_hint.size / 2
 		interaction_hint.position = Vector2(screen_center) - Vector2(label_half_size)
+		
+	if not has_node("CanvasLayer/Control/NotificationLabel"):
+		notification_label = Label.new()
+		notification_label.name = "NotificationLabel"
+		$CanvasLayer/Control.add_child(notification_label)
+	else:
+		notification_label = $CanvasLayer/Control/NotificationLabel
+	
+	notification_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	notification_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	notification_label.text = ""
+	notification_label.visible = false
+
+	var notification_position = Vector2(get_viewport().size.x / 2, interaction_hint.position.y - interaction_hint.size.y - 10)
+	notification_label.position = notification_position
+		
 	$Blur.visible = false
 	set_process(true)
 	if not ray_cast_to_door:
@@ -61,19 +81,31 @@ func check_door_proximity():
 
 		if is_near_door:
 			if interaction_hint:
-			# Показываем подсказку
-				$CanvasLayer/Control/InteractionHint.text = "Нажми G чтобы открыть дверь"
-				$CanvasLayer/Control/InteractionHint.visible = true
-				# Если нажата клавиша 'G', закрываем игру
+				# Показываем подсказку
+				interaction_hint.text = "Нажми G чтобы открыть дверь"
+				interaction_hint.visible = true
+				# Если нажата клавиша 'G', проверяем инвентарь
 				if Input.is_action_just_pressed("open_door"):  # Создайте это действие в Input Map
-					print("Opening door, closing game.")
-					get_tree().change_scene_to_file("res://win.tscn")
+					if main_character.inventory.has("key"):  # Предполагаем, что inventory - это словарь
+						print("Opening door, closing game.")
+						get_tree().change_scene_to_file("res://win.tscn")
+					else:
+						if notification_label:
+							notification_label.text = "Нужен ключ!"
+							notification_label.visible = true
+							# Здесь можно добавить таймер для автоматического скрытия уведомления
+							# Например:
+							# await get_tree().create_timer(2.0).timeout
+							# notification_label.visible = false
+						# Можете добавить таймер, чтобы это сообщение исчезало через некоторое время
+						# Здесь может быть код для создания и использования таймера
 			else:
 				print('Not found')
 		else:
 			if interaction_hint:
 				interaction_hint.visible = false
-			#$CanvasLayer/Conetrol/InteractionHint.visible = false
+			if notification_label:
+				notification_label.visible = false
 	else:
 		print("RayCastToDoor не найден!")
 

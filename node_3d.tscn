@@ -1295,6 +1295,11 @@ offset_top = -268.92
 offset_right = -753.728
 offset_bottom = -301.0
 
+[node name="NotificationLabel" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
 [connection signal="area_entered" from="CharacterBody3D/rat/Area3D" to="CharacterBody3D/rat/Area3D" method="_on_area_entered"]
 [connection signal="pressed" from="CanvasLayer/Control/pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/inventory" to="." method="_on_inventory_pressed"]
