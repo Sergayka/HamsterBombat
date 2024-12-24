@@ -1,9 +1,9 @@
 [gd_scene load_steps=15 format=4 uid="uid://bh5v5otlpaheo"]
 
 [ext_resource type="Script" path="res://boychik.gd" id="1_hhvji"]
-[ext_resource type="Texture2D" uid="uid://cjpg0jei6vi78" path="res://boychik_Ch09_1001_Diffuse.png" id="1_tu3h6"]
-[ext_resource type="Texture2D" uid="uid://cv2vcwvv0ipxv" path="res://boychik_Ch09_1001_Glossiness.png" id="2_012tb"]
-[ext_resource type="Texture2D" uid="uid://7yknsni0rvac" path="res://boychik_Ch09_1001_Normal.png" id="3_ty41j"]
+[ext_resource type="Texture2D" uid="uid://4svavlt8qu4s" path="res://boychik_Ch09_1001_Diffuse.png" id="1_tu3h6"]
+[ext_resource type="Texture2D" uid="uid://bx467xisf3kpr" path="res://boychik_Ch09_1001_Glossiness.png" id="2_012tb"]
+[ext_resource type="Texture2D" uid="uid://c0ukxju4pipf7" path="res://boychik_Ch09_1001_Normal.png" id="3_ty41j"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fr0jn"]
 radius = 0.675836
