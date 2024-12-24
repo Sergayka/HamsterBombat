@@ -44,22 +44,6 @@ tracks/0/keys = {
 "values": [Vector2(0, -600)]
 }
 
-[sub_resource type="Animation" id="Animation_dda66"]
-resource_name = "in"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(4, 1),
-"update": 0,
-"values": [Vector2(0, -550), Vector2(0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_s5b44"]
 resource_name = "out"
 length = 1.5
@@ -74,6 +58,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -550)]
+}
+
+[sub_resource type="Animation" id="Animation_dda66"]
+resource_name = "in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(4, 1),
+"update": 0,
+"values": [Vector2(0, -550), Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e2070"]
@@ -152,7 +152,6 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="restart" type="TextureButton" parent="."]
-layout_mode = 0
 offset_left = 399.0
 offset_top = 372.0
 offset_right = 1579.0
@@ -162,7 +161,6 @@ texture_normal = ExtResource("4_tuudb")
 texture_hover = ExtResource("5_vquki")
 
 [node name="Back" type="TextureButton" parent="."]
-layout_mode = 0
 offset_left = 399.0
 offset_top = 434.0
 offset_right = 939.0
@@ -172,7 +170,6 @@ texture_normal = ExtResource("6_tkyxv")
 texture_hover = ExtResource("7_j701f")
 
 [node name="Exit" type="TextureButton" parent="."]
-layout_mode = 0
 offset_left = 591.0
 offset_top = 434.0
 offset_right = 1131.0
