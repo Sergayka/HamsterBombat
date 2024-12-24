@@ -1215,7 +1215,7 @@ shape = SubResource("BoxShape3D_gqvhv")
 [node name="main_character" parent="." instance=ExtResource("29_iw74a")]
 transform = Transform3D(-0.999042, 0.0437589, 0.000663193, 0.0437589, 0.999042, 0, -0.000662558, 2.90206e-05, -1, -142.457, 12.3734, -59.7952)
 
-[node name="CharacterBody3D2" parent="." instance=ExtResource("17_3w8bp")]
+[node name="enemy_character" parent="." instance=ExtResource("17_3w8bp")]
 transform = Transform3D(-0.999968, 0, 0.00794108, 0, 1, 0, -0.00794108, 0, -0.999968, -124.772, 5.37531, -23.62)
 main_character = NodePath("../main_character")
 
