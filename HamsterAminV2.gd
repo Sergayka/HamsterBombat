@@ -7,6 +7,7 @@ extends CharacterBody3D
 @export var jump_strength: float = 10.0
 @export var gravity: float = 30.0
 @export var raycast: RayCast3D
+#@export var RayCastToDoot: Ray
 
 @export var camera: Camera3D
 @export var camera_distance: float = -2.5          # Расстояние камеры за хомяком

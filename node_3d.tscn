@@ -1213,7 +1213,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.9171, 37.3146, 27.9597)
 shape = SubResource("BoxShape3D_gqvhv")
 
 [node name="main_character" parent="." instance=ExtResource("29_iw74a")]
-transform = Transform3D(-0.999042, 0.0437589, 0.000663193, 0.0437589, 0.999042, 0, -0.000662558, 2.90206e-05, -1, -142.457, 12.3734, -59.7952)
+transform = Transform3D(-0.999042, 0.0437589, 0.000663193, 0.0437589, 0.999042, 0, -0.000662558, 2.90206e-05, -1, -41.9166, 7.96941, -51.8234)
+
+[node name="RayCastToDoor" type="RayCast3D" parent="main_character"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.363481, 0.300617)
+target_position = Vector3(0, 0, 0.9)
 
 [node name="enemy_character" parent="." instance=ExtResource("17_3w8bp")]
 transform = Transform3D(-0.999968, 0, 0.00794108, 0, 1, 0, -0.00794108, 0, -0.999968, -124.772, 5.37531, -23.62)
@@ -1274,6 +1278,18 @@ offset_bottom = 195.0
 scale = Vector2(0.3, 0.3)
 texture_normal = ExtResource("35_185mw")
 texture_hover = ExtResource("36_frl4l")
+
+[node name="InteractionHint" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.421
+anchor_top = 0.415
+anchor_right = 0.689
+anchor_bottom = 0.5
+offset_left = -484.992
+offset_top = -268.92
+offset_right = -753.728
+offset_bottom = -301.0
 
 [connection signal="area_entered" from="CharacterBody3D/rat/Area3D" to="CharacterBody3D/rat/Area3D" method="_on_area_entered"]
 [connection signal="pressed" from="CanvasLayer/Control/pause" to="." method="_on_pause_pressed"]
