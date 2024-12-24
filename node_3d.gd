@@ -48,3 +48,7 @@ func _on_inventory_closed() -> void:
 		$CanvasLayer/Control/Inventory/AnimationPlayer.play("out")
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		$Blur.visible = false
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	pass # Replace with function body.
