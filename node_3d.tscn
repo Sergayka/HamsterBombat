@@ -53,7 +53,7 @@ size = Vector3(6.07032, 28.7429, 77.7568)
 size = Vector3(6.48305, 28.844, 72.1253)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c084f"]
-size = Vector3(72.9773, 28.6938, 6.27588)
+size = Vector3(28.8265, 28.6938, 6.27588)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gx75j"]
 albedo_texture = ExtResource("4_bp1rn")
@@ -322,7 +322,11 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -39.97
 shape = SubResource("BoxShape3D_4extv")
 
 [node name="RightWallCollision" type="CollisionShape3D" parent="Kitchen/Main_StaticBody"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -75.0727, 19.8179, -40.7378)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -75.0727, 19.8179, -18.6624)
+shape = SubResource("BoxShape3D_c084f")
+
+[node name="RightWallCollision2" type="CollisionShape3D" parent="Kitchen/Main_StaticBody"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -75.0727, 19.8179, -77.159)
 shape = SubResource("BoxShape3D_c084f")
 
 [node name="Table_StaticBody" type="StaticBody3D" parent="Kitchen"]
