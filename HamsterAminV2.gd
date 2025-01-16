@@ -7,6 +7,7 @@ extends CharacterBody3D
 @export var jump_strength: float = 10.0
 @export var gravity: float = 30.0
 @export var raycast: RayCast3D
+#@export var RayCastToDoot: Ray
 
 @export var camera: Camera3D
 @export var camera_distance: float = -2.5          # Расстояние камеры за хомяком
@@ -16,22 +17,20 @@ extends CharacterBody3D
 @export var max_yaw: float = 360.0
 @export var min_yaw: float = 0.0
 
-@export var turning_duration: float = 0.2        # Продолжительность анимации поворота после движения мышью
-
-# Добавляем экспортируемые переменные для звуковых эффектов
+# Экспортируемые переменные для звуковых эффектов
 @export var slow_run_sound: AudioStream
-@export var fast_run_sound: AudioStream
+# @export var fast_run_sound: AudioStream   # Уберите, если не используется
 
 var vertical_velocity = 0.0
-var is_falling = false
 var yaw: float = 0.0
 
-# Переменная для управления таймером анимации поворота
-var turning_timer: float = 0.0
-
-
 var audio_slow_run: AudioStreamPlayer
-var audio_fast_run: AudioStreamPlayer
+# var audio_fast_run: AudioStreamPlayer   # Уберите, если не используется
+
+var is_jumping = false  # Флаг для отслеживания состояния прыжка
+
+# Добавляем инвентарь
+var inventory: Array = []  # Массив для хранения предметов
 
 func _ready():
 	# Инициализация AnimationPlayer, RayCast3D и Camera3D, если они не назначены
@@ -50,7 +49,7 @@ func _ready():
 		
 	# Инициализация AudioStreamPlayer
 	audio_slow_run = $AudioStreamPlayer_slowRun
-	audio_fast_run = $AudioStreamPlayer_fastRun
+	# audio_fast_run = $AudioStreamPlayer_fastRun   # Уберите, если не используется
 
 	# Назначение звуковых файлов через экспортируемые переменные
 	if slow_run_sound != null:
@@ -58,10 +57,10 @@ func _ready():
 	else:
 		print("slow_run_sound не назначен!")
 
-	if fast_run_sound != null:
-		audio_fast_run.stream = fast_run_sound
-	else:
-		print("fast_run_sound не назначен!")
+	# if fast_run_sound != null:
+	#     audio_fast_run.stream = fast_run_sound
+	# else:
+	#     print("fast_run_sound не назначен!")
 	
 	# Захватываем мышь для управления камерой
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -78,18 +77,9 @@ func _unhandled_input(event):
 		# Обновляем позицию камеры
 		update_camera_position()
 
-		# Определяем направление поворота и воспроизводим соответствующую анимацию
-		#if event.relative.x > 0:
-			#play_turn_right_animation()
-		#elif event.relative.x < 0:
-			#play_turn_left_animation()
-		
-		# Сбрасываем таймер поворота
-		turning_timer = turning_duration
-
 func _process(delta):
 	var is_moving_forward = Input.is_action_pressed("move_forward")
-	var is_jumping = Input.is_action_just_pressed("jump")
+	var is_jumping_pressed = Input.is_action_just_pressed("jump")
 	var is_running = Input.is_action_pressed("run")  # Проверяем, нажата ли клавиша run (Shift)
 	
 	# Выбор скорости движения
@@ -104,48 +94,52 @@ func _process(delta):
 		move_direction = transform.basis.z.normalized()
 	
 	if move_direction != Vector3.ZERO:
-		velocity = move_direction * current_speed
+		velocity.x = move_direction.x * current_speed
+		velocity.z = move_direction.z * current_speed
 	else:
-		velocity = Vector3.ZERO
+		velocity.x = 0
+		velocity.z = 0
 
 	# Обработка прыжка
 	if is_on_ground():
-		if is_jumping:
+		if is_jumping_pressed:
 			vertical_velocity = jump_strength
+			is_jumping = true
 			play_jump_animation()
+			print("Jump initiated")
 	else:
 		vertical_velocity -= gravity * delta
-		is_falling = true
-		play_falling_animation()
-	
-	if is_on_ground() and is_falling:
-		if vertical_velocity < 0:
-			vertical_velocity = 0
-		play_falling_impact_animation()
-		is_falling = false
 
+	# Проверка завершения прыжка
+	if is_jumping and is_on_ground():
+		is_jumping = false
+		print("Jump ended")
+	
 	velocity.y = vertical_velocity
 
 	# Применяем движение
 	move_and_slide()
 
-  # Обработка анимаций и звуков
-	if turning_timer > 0:
-		# В процессе поворота, анимация уже установлена в _unhandled_input
-		turning_timer -= delta
+	# Обработка анимаций и звуков
+	if is_jumping:
+		# Во время прыжка воспроизводим анимацию "jump"
+		if animation_player.current_animation != "jump":
+			play_jump_animation()
+			print("Playing jump animation")
 	else:
-	# После завершения поворота, переключаемся на анимацию движения или покоя
 		if is_moving_forward:
+			play_forward_animation()
 			if is_running:
-				play_fast_run_animation()
-				play_running_sound(true, false)  # Воспроизводим fastRun звук
+				play_running_sound(true, false)  # Воспроизводим fastRun звук, если используется
 			else:
-				play_forward_animation()
 				play_running_sound(false, true)  # Воспроизводим slowRun звук
 		else:
-			if not is_falling:
-				play_idle_animation()
-				stop_running_sound()  # Останавливаем все беговые звуки
+			play_idle_animation()
+			stop_running_sound()
+
+	# Можно добавить отладочные сообщения для проверки
+	# print("Current Animation: ", animation_player.current_animation)
+	# print("Velocity: ", velocity)
 
 func is_on_ground() -> bool:
 	return raycast.is_colliding()
@@ -161,45 +155,49 @@ func update_camera_position():
 func play_forward_animation():
 	if animation_player.current_animation != "slowRun":
 		animation_player.play("slowRun")
-
-func play_fast_run_animation():
-	if animation_player.current_animation != "fastRun":
-		animation_player.play("fastRun")
-
-func play_turn_left_animation():
-	if animation_player.current_animation != "turnLeft":
-		animation_player.play("turnLeft")
-
-func play_turn_right_animation():
-	if animation_player.current_animation != "turnRight":
-		animation_player.play("turnRight")
+		print("Playing slowRun animation")
 
 func play_jump_animation():
 	if animation_player.current_animation != "jump":
 		animation_player.play("jump")
-
-func play_falling_animation():
-	if animation_player.current_animation != "falling":
-		animation_player.play("falling")
-
-func play_falling_impact_animation():
-	if animation_player.current_animation != "fallingFlatImpact":
-		animation_player.play("fallingFlatImpact")
+		print("Playing jump animation")
 
 func play_idle_animation():
 	if animation_player.current_animation != "idle":
 		animation_player.play("idle")
-		
+		print("Playing idle animation")
 		
 # Функции для управления звуками
 func play_running_sound(is_fast: bool, is_slow: bool):
-	if is_fast and !audio_fast_run.playing:
-		audio_fast_run.play()
-	elif is_slow and !audio_slow_run.playing:
-		audio_slow_run.play()
+	if is_fast:
+		# if !audio_fast_run.playing:
+			# audio_fast_run.play()
+			# print("Playing fast run sound")
+		pass
+	if is_slow:
+		if !audio_slow_run.playing:
+			audio_slow_run.play()
+			print("Playing slow run sound")
 
 func stop_running_sound():
-	if audio_fast_run.playing:
-		audio_fast_run.stop()
+	# if audio_fast_run.playing:
+		# audio_fast_run.stop()
+		# print("Stopped fast run sound")
 	if audio_slow_run.playing:
 		audio_slow_run.stop()
+		print("Stopped slow run sound")
+
+# Функции для управления инвентарём (опционально)
+func add_item(item):
+	inventory.append(item)
+	print("Добавлен предмет: ", item)
+
+func remove_item(item):
+	if item in inventory:
+		inventory.erase(item)
+		print("Удалён предмет: ", item)
+	else:
+		print("Предмет не найден: ", item)
+
+func list_inventory():
+	print("Инвентарь:", inventory)

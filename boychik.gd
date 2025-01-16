@@ -20,7 +20,7 @@ var current_state: State = State.WALKING
 @onready var ray_right = $RayCastRight
 
 # Ссылки на узлы AudioStreamPlayer (опционально)
-@onready var audio_walk: AudioStreamPlayer = $AudioStreamPlayer_walk
+#@onready var audio_walk: AudioStreamPlayer = $AudioStreamPlayer_walk
 
 # Направление движения
 var direction: Vector3 = Vector3.ZERO
@@ -65,14 +65,14 @@ func _process(delta):
 			
 			if is_moving_towards_obstacle():
 				# Остановиться, выбрать новое направление и начать staying
-				stop_walk_sound()
+				#stop_walk_sound()
 				current_state = State.STAYING
 				play_staying_animation()
 				choose_new_direction()  # Выбираем новое направление при столкновении
 				print("Столкновение с препятствием. Переход в состояние: Staying")
 			else:
 				play_walk_animation()
-				play_walk_sound()
+				#play_walk_sound()
 		State.STAYING:
 			pass  # NPC остается на месте
 
@@ -104,7 +104,7 @@ func _on_StayingTimer_timeout():
 	if current_state == State.WALKING:
 		current_state = State.STAYING
 		play_staying_animation()
-		stop_walk_sound()
+		#stop_walk_sound()
 		print("Переход в состояние: Staying")
 		# Устанавливаем таймер для возврата к ходьбе через 2 секунды
 		await get_tree().create_timer(2.0).timeout
@@ -143,12 +143,12 @@ func play_staying_animation():
 		print("Воспроизводится анимация: staying")
 
 # Управление звуками ходьбы
-func play_walk_sound():
-	if audio_walk and !audio_walk.playing:
-		audio_walk.play()
-		print("Воспроизводится walk звук")
-
-func stop_walk_sound():
-	if audio_walk and audio_walk.playing:
-		audio_walk.stop()
-		print("Останавливается walk звук")
+#func play_walk_sound():
+	#if audio_walk and !audio_walk.playing:
+		#audio_walk.play()
+		#print("Воспроизводится walk звук")
+#
+#func stop_walk_sound():
+	#if audio_walk and audio_walk.playing:
+		#audio_walk.stop()
+		#print("Останавливается walk звук")
