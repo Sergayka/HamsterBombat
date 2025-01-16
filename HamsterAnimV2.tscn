@@ -2655,14 +2655,15 @@ raycast = NodePath("RayCast3D")
 camera = NodePath("Camera3D")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.99922, 8.73546e-08, -0.0394865, -0.00212909, 0.998545, 0.0538795, 0.0394291, 0.0539216, -0.997766, 0, 1.062, -1.592)
+transform = Transform3D(-0.99922, 8.78199e-08, -0.0394865, -0.00212909, 0.998545, 0.0538796, 0.0394291, 0.0539216, -0.997766, 0, 1.062, -0.962745)
 rotation_order = 0
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(0.635, 0, 0, 0, 0.635, 0, 0, 0, 0.635, 0, 0.345513, 0.31366)
+transform = Transform3D(0.635, 0, 0, 0, 0.635, 0, 0, 0, 0.635, 0, 0.345513, 0.61756)
+target_position = Vector3(0, -0.58, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.999999, -0.00169297, 0, 0.00169297, 0.999999, -0.00929394, 0.34052, 0.281662)
+transform = Transform3D(1, 0, 0, 0, 0.999999, -0.00169297, 0, 0.00169297, 0.999999, 0.0373282, 0.288432, 0.588063)
 shape = SubResource("CapsuleShape3D_bhioc")
 
 [node name="AudioStreamPlayer_slowRun" type="AudioStreamPlayer" parent="."]

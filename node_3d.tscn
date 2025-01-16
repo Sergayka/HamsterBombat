@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=3 uid="uid://dduirm5ychoe6"]
+[gd_scene load_steps=123 format=3 uid="uid://dduirm5ychoe6"]
 
 [ext_resource type="Script" path="res://node_3d.gd" id="1_kqbc8"]
 [ext_resource type="Texture2D" uid="uid://b2g26ghmcq4aw" path="res://kitchen items/textures/32543-skinali-7065.webp" id="2_qul0i"]
@@ -36,6 +36,7 @@
 [ext_resource type="Script" path="res://area_3d.gd" id="31_ekrnv"]
 [ext_resource type="PackedScene" uid="uid://c3r8rmlljj46s" path="res://inventory.tscn" id="32_137x0"]
 [ext_resource type="Texture2D" uid="uid://cd7hu06ulws75" path="res://main_menu_src/btns/pause.png" id="33_pfc8a"]
+[ext_resource type="PackedScene" uid="uid://sd71wqcrlkmb" path="res://key.tscn" id="33_rx2pm"]
 [ext_resource type="Texture2D" uid="uid://dn3rtytufumpc" path="res://main_menu_src/btns/pause hover.png" id="34_y7d77"]
 [ext_resource type="Texture2D" uid="uid://dn001m3fis35r" path="res://main_menu_src/btns/inventory.png" id="35_185mw"]
 [ext_resource type="Texture2D" uid="uid://d03ry7xr7rkxw" path="res://main_menu_src/btns/inventory hover.png" id="36_frl4l"]
@@ -247,7 +248,7 @@ size = Vector3(1.14795, 2.54395, 1.46582)
 size = Vector3(0.409724, 0.0767241, 0.669076)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3bw1c"]
-size = Vector3(0.403748, 0.361755, 0.0229492)
+size = Vector3(0.403748, 0.300506, 0.0229492)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gd27j"]
 size = Vector3(0.0224609, 0.442016, 0.678284)
@@ -870,12 +871,6 @@ mesh = ExtResource("21_5jikt")
 [node name="StaticBody3D" type="StaticBody3D" parent="Bathroom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.340248, -0.183525, 0.00138853)
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Bathroom/StaticBody3D"]
-transform = Transform3D(-1.93682, 0, 0.00283974, 0, 1.58546, 0, -0.00283974, 0, -1.93682, -52.7551, 0.466938, 14.6314)
-material_override = SubResource("StandardMaterial3D_8urs6")
-mesh = ExtResource("23_by32x")
-skeleton = NodePath("../..")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bathroom/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.2845, 10.4762, 15.7616)
 shape = SubResource("BoxShape3D_gcrnk")
@@ -1123,6 +1118,7 @@ shape = SubResource("BoxShape3D_8rjp1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Bedroom/Cage"]
 transform = Transform3D(-0.0333233, 0, -0.0493128, 0, 0.0595164, 0, 0.0493128, 0, -0.0333233, 5.15296, 0.0483274, -0.196934)
+rotation_order = 0
 mesh = ExtResource("28_bb1ht")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bedroom/Cage"]
@@ -1130,10 +1126,14 @@ transform = Transform3D(0.819402, 0, -0.57322, 0, 1, 0, 0.57322, 0, 0.819402, 5.
 shape = SubResource("BoxShape3D_gf7b4")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Bedroom/Cage"]
-transform = Transform3D(0.831324, 0, -0.555788, 0, 1, 0, 0.555788, 0, 0.831324, 4.96686, 0.212948, 0.0800476)
+transform = Transform3D(0.831324, 0, -0.555788, 0, 1, 0, 0.555788, 0, 0.831324, 4.96686, 0.243572, 0.0800476)
 shape = SubResource("BoxShape3D_3bw1c")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Bedroom/Cage"]
+transform = Transform3D(0.831324, -0.555701, -0.00983563, 2.98023e-08, 0.0176967, -0.999843, 0.555788, 0.831194, 0.0147117, 5.12798, 0.0959157, -0.160942)
+shape = SubResource("BoxShape3D_3bw1c")
+
+[node name="CollisionShape3D18" type="CollisionShape3D" parent="Bedroom/Cage"]
 transform = Transform3D(0.831324, 0, -0.555788, 0, 1, 0, 0.555788, 0, 0.831324, 5.3383, 0.228699, -0.475533)
 shape = SubResource("BoxShape3D_3bw1c")
 
@@ -1217,31 +1217,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.9171, 37.3146, 27.9597)
 shape = SubResource("BoxShape3D_gqvhv")
 
 [node name="main_character" parent="." instance=ExtResource("29_iw74a")]
-transform = Transform3D(-0.999042, 0.0437589, 0.000663193, 0.0437589, 0.999042, 0, -0.000662558, 2.90206e-05, -1, -41.9166, 7.96941, -51.8234)
+transform = Transform3D(-0.999042, 0.0437589, 0.000663193, 0.0437589, 0.999042, 0, -0.000662558, 2.90206e-05, -1, -142.257, 11.9021, -59.5767)
 
 [node name="RayCastToDoor" type="RayCast3D" parent="main_character"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.363481, 0.300617)
 target_position = Vector3(0, 0, 0.9)
 
 [node name="enemy_character" parent="." instance=ExtResource("17_3w8bp")]
-transform = Transform3D(-0.999968, 0, 0.00794108, 0, 1, 0, -0.00794108, 0, -0.999968, -124.772, 5.37531, -23.62)
+transform = Transform3D(-0.999968, 0, 0.00794108, 0, 1, 0, -0.00794108, 0, -0.999968, -133.389, 4.93434, -32.0633)
 main_character = NodePath("../main_character")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="rat" type="CharacterBody3D" parent="."]
 transform = Transform3D(-0.00636422, 0, 0.549963, 0, 0.55, 0, -0.549963, 0, -0.00636422, -158.256, 4.88989, -30.3822)
 
-[node name="rat" parent="CharacterBody3D" instance=ExtResource("30_ltjqk")]
+[node name="rat" parent="rat" instance=ExtResource("30_ltjqk")]
 
-[node name="Area3D" type="Area3D" parent="CharacterBody3D/rat"]
+[node name="Area3D" type="Area3D" parent="rat/rat"]
 script = ExtResource("31_ekrnv")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/rat/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="rat/rat/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35025, 1.90961, 2.3345)
 shape = SubResource("BoxShape3D_jeytp")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="rat"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.215672, 1.94598, 0.363068)
 shape = SubResource("BoxShape3D_w2n2v")
+
+[node name="Key" parent="." instance=ExtResource("33_rx2pm")]
+transform = Transform3D(0.980584, -7.45058e-09, 0.1961, 0.166975, -0.524387, -0.834947, 0.102832, 0.85148, -0.514206, -52.5447, 6.41647, -6.80026)
 
 [node name="Blur" parent="." instance=ExtResource("30_nmfd6")]
 mouse_filter = 2
@@ -1300,6 +1303,6 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
-[connection signal="area_entered" from="CharacterBody3D/rat/Area3D" to="CharacterBody3D/rat/Area3D" method="_on_area_entered"]
+[connection signal="area_entered" from="rat/rat/Area3D" to="rat/rat/Area3D" method="_on_area_entered"]
 [connection signal="pressed" from="CanvasLayer/Control/pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/inventory" to="." method="_on_inventory_pressed"]

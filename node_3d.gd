@@ -67,12 +67,24 @@ func check_raycast_collision():
 	else:
 		print("No collision")
 
+func add_key_to_inventory():
+	if main_character:
+		main_character.add_item("key")
+		print("Ключ добавлен в инвентарь.")
+	else:
+		print("main_character не найден.")
+
+
 func check_door_proximity():
 	if ray_cast_to_door:
 		ray_cast_to_door.force_raycast_update()
 		if ray_cast_to_door.is_colliding():
 			var collider = ray_cast_to_door.get_collider()
-			if collider and collider.name == "StaticBody3D5":  # Имя узла двери
+			if collider and collider.name == "Key":  # Предполагаем, что у ключа узел с именем "Key"
+				print("Detected key collision!")
+				collider.queue_free()  # Удаляем модельку ключа из сцены
+				add_key_to_inventory()  # Добавляем ключ в инвентарь
+			elif collider and collider.name == "StaticBody3D5":  # Имя узла двери
 				is_near_door = true
 			else:
 				is_near_door = false
