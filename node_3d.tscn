@@ -1303,6 +1303,14 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
+[node name="TaskList" type="VBoxContainer" parent="CanvasLayer/Control"]
+custom_minimum_size = Vector2(0.685, 1.02)
+layout_mode = 0
+offset_left = 5.0
+offset_top = 74.0
+offset_right = 321.0
+offset_bottom = 365.0
+
 [connection signal="area_entered" from="rat/rat/Area3D" to="rat/rat/Area3D" method="_on_area_entered"]
 [connection signal="pressed" from="CanvasLayer/Control/pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/inventory" to="." method="_on_inventory_pressed"]

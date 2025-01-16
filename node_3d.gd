@@ -5,9 +5,17 @@ var is_near_door = false  # Флаг для отслеживания близо�
 @onready var ray_cast_to_door = $main_character/RayCastToDoor
 @onready var interaction_hint = $CanvasLayer/Control/InteractionHint
 @onready var main_character = $main_character  # Предполагаем, что это узел сцены главного персонажа
+@onready var notification_label: Label = $CanvasLayer/Control/NotificationLabel if has_node("CanvasLayer/Control/NotificationLabel") else null
+@onready var task_list = $CanvasLayer/Control/TaskList  # Предполагаем, что TaskList - это VBoxContainer или аналог
 
-var notification_label: Label
-
+var tasks = {
+	"Осмотреть квартиру": false,
+	"Поговорить с Крысиным": false,
+	"Выпить волшебное зелье": false,
+	"Найти золото": false,
+	"Найти свинью": false,
+	"Выбраться наружу": false
+}
 
 func _ready() -> void:
 	if not interaction_hint:
@@ -18,26 +26,32 @@ func _ready() -> void:
 		var screen_center = get_viewport().size / 2
 		var label_half_size = interaction_hint.size / 2
 		interaction_hint.position = Vector2(screen_center) - Vector2(label_half_size)
-		
-	if not has_node("CanvasLayer/Control/NotificationLabel"):
+
+	if not notification_label:
 		notification_label = Label.new()
 		notification_label.name = "NotificationLabel"
 		$CanvasLayer/Control.add_child(notification_label)
-	else:
-		notification_label = $CanvasLayer/Control/NotificationLabel
 	
 	notification_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	notification_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	notification_label.text = ""
 	notification_label.visible = false
+	
+	task_list.add_theme_color_override("font_color", Color(0, 1, 0))
 
 	var notification_position = Vector2(get_viewport().size.x / 2, interaction_hint.position.y - interaction_hint.size.y - 10)
 	notification_label.position = notification_position
-		
+	
 	$Blur.visible = false
 	set_process(true)
 	if not ray_cast_to_door:
 		print("RayCastToDoor не найден!")
+	
+	# Запуск таймера для автоматического выполнения задачи "осмотреть квартиру"
+	var timer = get_tree().create_timer(30.0)
+	timer.timeout.connect(_on_explore_room_timer_timeout)
+
+	update_task_list()
 
 func _process(delta: float) -> void:
 	Btns()
@@ -60,7 +74,6 @@ func check_raycast_collision():
 		var collider = $enemy_character/RayCastForward.get_collider()
 		if collider and collider.name == "main_character":
 			print("Collision detected with main_character! Closing game.")
-			#get_tree().quit()# Закрывает игру
 			get_tree().change_scene_to_file("res://died.tscn")
 		else:
 			print("Collision detected but not with main_character")
@@ -74,7 +87,6 @@ func add_key_to_inventory():
 	else:
 		print("main_character не найден.")
 
-
 func check_door_proximity():
 	if ray_cast_to_door:
 		ray_cast_to_door.force_raycast_update()
@@ -86,6 +98,9 @@ func check_door_proximity():
 				add_key_to_inventory()  # Добавляем ключ в инвентарь
 			elif collider and collider.name == "StaticBody3D5":  # Имя узла двери
 				is_near_door = true
+				if not tasks["Выбраться наружу"]:
+					tasks["Выбраться наружу"] = true
+					update_task_list()
 			else:
 				is_near_door = false
 		else:
@@ -96,7 +111,6 @@ func check_door_proximity():
 				# Показываем подсказку
 				interaction_hint.text = "Нажми G чтобы открыть дверь"
 				interaction_hint.visible = true
-				# Если нажата клавиша 'G', проверяем инвентарь
 				if Input.is_action_just_pressed("open_door"):  # Создайте это действие в Input Map
 					if main_character.inventory.has("key"):  # Предполагаем, что inventory - это словарь
 						print("Opening door, closing game.")
@@ -105,12 +119,6 @@ func check_door_proximity():
 						if notification_label:
 							notification_label.text = "Нужен ключ!"
 							notification_label.visible = true
-							# Здесь можно добавить таймер для автоматического скрытия уведомления
-							# Например:
-							# await get_tree().create_timer(2.0).timeout
-							# notification_label.visible = false
-						# Можете добавить таймер, чтобы это сообщение исчезало через некоторое время
-						# Здесь может быть код для создания и использования таймера
 			else:
 				print('Not found')
 		else:
@@ -120,6 +128,21 @@ func check_door_proximity():
 				notification_label.visible = false
 	else:
 		print("RayCastToDoor не найден!")
+
+func _on_explore_room_timer_timeout():
+	if not tasks["Осмотреть квартиру"]:
+		tasks["Осмотреть квартиру"] = true
+		update_task_list()
+
+func update_task_list():
+	for child in task_list.get_children():
+		task_list.remove_child(child)
+		child.queue_free()
+	
+	for task in tasks:
+		var label = Label.new()
+		label.text = task + (" (✅)" if tasks[task] else "")
+		task_list.add_child(label)
 
 func _on_pause_pressed() -> void:
 	if !$Blur.visible:
