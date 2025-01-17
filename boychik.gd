@@ -2,14 +2,16 @@ extends CharacterBody3D
 
 # Экспортируемые переменные для настройки через инспектор
 @export var animation_player: AnimationPlayer
-@export var move_speed: float = 3.0               # Скорость ходьбы
-@export var staying_duration: float = 10.0        # Время между "staying" анимациями
+@export var move_speed: float = 5.0               # Скорость ходьбы
+@export var staying_duration: float = 50.0        # Время между "staying" анимациями
 @export var rotation_speed: float = 10.0          # Скорость поворота модели
 @export var main_character: NodePath               # Путь к главному персонажу
+
 
 # Переменные состояния
 enum State { WALKING, STAYING }
 var current_state: State = State.WALKING
+var is_near_rat = false
 
 # Таймер для состояния "staying"
 @onready var staying_timer = $StayingTimer
@@ -18,6 +20,8 @@ var current_state: State = State.WALKING
 @onready var ray_forward = $RayCastForward
 @onready var ray_left = $RayCastLeft
 @onready var ray_right = $RayCastRight
+
+
 
 # Ссылки на узлы AudioStreamPlayer (опционально)
 #@onready var audio_walk: AudioStreamPlayer = $AudioStreamPlayer_walk
@@ -75,6 +79,7 @@ func _process(delta):
 				#play_walk_sound()
 		State.STAYING:
 			pass  # NPC остается на месте
+
 
 # Функция для выбора нового направления
 func choose_new_direction():

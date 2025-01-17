@@ -3632,5 +3632,5 @@ libraries = {
 }
 
 [node name="StayingTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.32
 one_shot = true

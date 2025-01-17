@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://8bi7n2mbcay7"]
+
+[ext_resource type="Script" path="res://key.gd" id="1_2rtiw"]
+[ext_resource type="ArrayMesh" uid="uid://cjm0j673ao6h0" path="res://kitchen items/piggy bank/14891_PiggyBank_v1.obj" id="2_3a5vu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aur7e"]
+albedo_color = Color(0.991705, 0.49331, 1, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_786rj"]
+radius = 0.298885
+height = 0.597771
+
+[node name="StaticBody3D" type="StaticBody3D"]
+script = ExtResource("1_2rtiw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.02, 0, 0, 0, -8.74228e-10, 0.02, 0, -0.02, -8.74228e-10, 0, 0, 0)
+mesh = ExtResource("2_3a5vu")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_aur7e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.128207, 0, 0.991747, 0, 1, 0, -0.991747, 0, 0.128207, 0.0900233, 0.167626, -0.12094)
+shape = SubResource("CapsuleShape3D_786rj")

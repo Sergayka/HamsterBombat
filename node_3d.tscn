@@ -1,46 +1,49 @@
 [gd_scene load_steps=127 format=3 uid="uid://dduirm5ychoe6"]
 
 [ext_resource type="Script" path="res://node_3d.gd" id="1_kqbc8"]
-[ext_resource type="Texture2D" uid="uid://fx0jfqkm5k6g" path="res://kitchen items/textures/32543-skinali-7065.webp" id="2_qul0i"]
-[ext_resource type="ArrayMesh" uid="uid://bws0dfgbxy1ht" path="res://kitchen items/main.obj" id="3_x55pu"]
-[ext_resource type="Texture2D" uid="uid://myvvfav10h4w" path="res://kitchen items/textures/Table_baseColor.png" id="4_bp1rn"]
-[ext_resource type="ArrayMesh" uid="uid://tjp5ugfvmlfg" path="res://kitchen items/tbl.obj" id="5_oxk4u"]
-[ext_resource type="Texture2D" uid="uid://tutgfkj7wvj1" path="res://textures/Chair_baseColor.png" id="6_vq5kd"]
-[ext_resource type="ArrayMesh" uid="uid://l6ygb0y5mrcv" path="res://kitchen items/chair.obj" id="7_r2rn8"]
-[ext_resource type="Texture2D" uid="uid://kk28a2t5go37" path="res://kitchen items/textures/200.jpg" id="8_ur1mm"]
-[ext_resource type="Texture2D" uid="uid://be3f0i1a1ghyg" path="res://kitchen items/textures/material_19_baseColor.png" id="9_sty20"]
-[ext_resource type="Texture2D" uid="uid://dnvsmci3tocs1" path="res://kitchen items/textures/Fridge_specularf0.png" id="10_nj6nk"]
-[ext_resource type="ArrayMesh" uid="uid://cff3g4i3tt7vh" path="res://kitchen items/window.obj" id="10_om80g"]
-[ext_resource type="ArrayMesh" uid="uid://bqhqlwwwcs0qv" path="res://kitchen items/fridge.obj" id="12_pfqhh"]
-[ext_resource type="Texture2D" uid="uid://b3ywq06a1jm5" path="res://kitchen items/textures/Fridge_baseColor.png" id="12_qi6wa"]
-[ext_resource type="ArrayMesh" uid="uid://bvfh1dqyagkxr" path="res://kitchen items/fartuc.obj" id="14_sy88m"]
+[ext_resource type="Texture2D" uid="uid://b2g26ghmcq4aw" path="res://kitchen items/textures/32543-skinali-7065.webp" id="2_qul0i"]
+[ext_resource type="ArrayMesh" uid="uid://brtkq6v06hco0" path="res://kitchen items/main.obj" id="3_x55pu"]
+[ext_resource type="Texture2D" uid="uid://bk1kw0moa0asx" path="res://kitchen items/textures/Table_baseColor.png" id="4_bp1rn"]
+[ext_resource type="ArrayMesh" uid="uid://bm6mqb2d25sm" path="res://kitchen items/tbl.obj" id="5_oxk4u"]
+[ext_resource type="Texture2D" uid="uid://3fnfesw2e6sr" path="res://textures/Chair_baseColor.png" id="6_vq5kd"]
+[ext_resource type="ArrayMesh" uid="uid://d1tdtn5kaggf1" path="res://kitchen items/chair.obj" id="7_r2rn8"]
+[ext_resource type="Texture2D" uid="uid://1pk3g281c3i2" path="res://kitchen items/textures/200.jpg" id="8_ur1mm"]
+[ext_resource type="Texture2D" uid="uid://fh4v2vpkvsme" path="res://kitchen items/textures/material_19_baseColor.png" id="9_sty20"]
+[ext_resource type="Texture2D" uid="uid://c688sd4e0tnsn" path="res://kitchen items/textures/Fridge_specularf0.png" id="10_nj6nk"]
+[ext_resource type="ArrayMesh" uid="uid://chck4mng6jbem" path="res://kitchen items/window.obj" id="10_om80g"]
+[ext_resource type="ArrayMesh" uid="uid://d0fwoeednd1np" path="res://kitchen items/fridge.obj" id="12_pfqhh"]
+[ext_resource type="Texture2D" uid="uid://c3ci03m6tv5p5" path="res://kitchen items/textures/Fridge_baseColor.png" id="12_qi6wa"]
+[ext_resource type="ArrayMesh" uid="uid://dcqiselffkql5" path="res://kitchen items/fartuc.obj" id="14_sy88m"]
 [ext_resource type="PackedScene" uid="uid://bh5v5otlpaheo" path="res://boy_animation.tscn" id="17_3w8bp"]
-[ext_resource type="AudioStream" uid="uid://cwefnpo1w06w5" path="res://music.mp3" id="19_w22br"]
-[ext_resource type="ArrayMesh" uid="uid://bunou8jkibkl0" path="res://kitchen items/tarelka.obj" id="20_tl61y"]
-[ext_resource type="ArrayMesh" uid="uid://b22sgou687jyd" path="res://bathroom_items/bathroommm/bathroommm.obj" id="21_5jikt"]
-[ext_resource type="Texture2D" uid="uid://c8btcd65t5s14" path="res://bathroom_items/frame/Image_0.png" id="22_a88vq"]
-[ext_resource type="ArrayMesh" uid="uid://do2rsc20wex7o" path="res://bedroom/bedr/bedr.obj" id="22_uurbv"]
-[ext_resource type="ArrayMesh" uid="uid://c27gwii2arw4f" path="res://bathroom_items/pidoor/pidoor.obj" id="23_by32x"]
-[ext_resource type="Texture2D" uid="uid://3pf3wmexlovb" path="res://bedroom/bedr/Image_9.png" id="23_omsja"]
-[ext_resource type="PackedScene" uid="uid://0p5hham0cb7t" path="res://oct.glb" id="24_eaaaj"]
-[ext_resource type="Texture2D" uid="uid://bcg84mwxpimf1" path="res://bedroom/bedr/Image_8.jpg" id="24_vj6li"]
-[ext_resource type="Texture2D" uid="uid://cesgbin64glw7" path="res://kitchen items/textures/CoffeeMaker_metallicRoughness.png" id="25_ooog7"]
-[ext_resource type="Texture2D" uid="uid://bis75fk8412e3" path="res://kitchen items/textures/material_19_specularf0.png" id="28_2nvo8"]
-[ext_resource type="ArrayMesh" uid="uid://0fbwipqyhqce" path="res://bedroom/cagey/ImageToStl.com_hamster_cage.obj" id="28_bb1ht"]
-[ext_resource type="ArrayMesh" uid="uid://cmldwjgywhko" path="res://bedroom/potion/magicpotion.obj" id="29_12sqp"]
-[ext_resource type="ArrayMesh" uid="uid://dviwl5xukas6i" path="res://kitchen items/walli.obj" id="29_dpwpd"]
+[ext_resource type="AudioStream" uid="uid://d0gtsxpy7m47u" path="res://music.mp3" id="19_w22br"]
+[ext_resource type="ArrayMesh" uid="uid://cd338ulys2766" path="res://kitchen items/tarelka.obj" id="20_tl61y"]
+[ext_resource type="ArrayMesh" uid="uid://d0sny1suqwamt" path="res://bathroom_items/bathroommm/bathroommm.obj" id="21_5jikt"]
+[ext_resource type="Texture2D" uid="uid://c03pvfpceoubv" path="res://bathroom_items/frame/Image_0.png" id="22_a88vq"]
+[ext_resource type="ArrayMesh" uid="uid://d1h4op4b8mc4p" path="res://bedroom/bedr/bedr.obj" id="22_uurbv"]
+[ext_resource type="ArrayMesh" uid="uid://dwpgalvsem2fg" path="res://bathroom_items/pidoor/pidoor.obj" id="23_by32x"]
+[ext_resource type="Texture2D" uid="uid://bi5y2cllsujw1" path="res://bedroom/bedr/Image_9.png" id="23_omsja"]
+[ext_resource type="PackedScene" uid="uid://5tqlxdhla7hv" path="res://oct.glb" id="24_eaaaj"]
+[ext_resource type="Texture2D" uid="uid://c4o6ak1ukcahc" path="res://bedroom/bedr/Image_8.jpg" id="24_vj6li"]
+[ext_resource type="Texture2D" uid="uid://byn403gmyva5m" path="res://kitchen items/textures/CoffeeMaker_metallicRoughness.png" id="25_ooog7"]
+[ext_resource type="Texture2D" uid="uid://csdcv814mh2ik" path="res://kitchen items/textures/material_19_specularf0.png" id="28_2nvo8"]
+[ext_resource type="ArrayMesh" uid="uid://cgoe1vlhbv1iq" path="res://bedroom/cagey/ImageToStl.com_hamster_cage.obj" id="28_bb1ht"]
+[ext_resource type="ArrayMesh" uid="uid://chq4e42rwg7qx" path="res://kitchen items/walli.obj" id="29_dpwpd"]
 [ext_resource type="PackedScene" uid="uid://c0bmr6yjwjd6o" path="res://HamsterAnimV2.tscn" id="29_iw74a"]
-[ext_resource type="PackedScene" uid="uid://5lc0780unnqh" path="res://bedroom/bedr/frame.glb" id="29_rvs0e"]
-[ext_resource type="PackedScene" uid="uid://dc5cp03qus86r" path="res://rat.glb" id="30_ltjqk"]
+[ext_resource type="PackedScene" uid="uid://c5lucqkrm5ww8" path="res://bedroom/bedr/frame.glb" id="29_rvs0e"]
+[ext_resource type="PackedScene" uid="uid://b8c1j604ecc2p" path="res://bedroom/bedr/vv.tscn" id="29_yhvqv"]
+[ext_resource type="PackedScene" uid="uid://b8tb3hd7ktmog" path="res://rat.glb" id="30_ltjqk"]
 [ext_resource type="PackedScene" uid="uid://k2lmkwxetinc" path="res://blur.tscn" id="30_nmfd6"]
 [ext_resource type="PackedScene" uid="uid://duvyteh2co1yy" path="res://PauseMenu.tscn" id="31_cadm4"]
 [ext_resource type="Script" path="res://area_3d.gd" id="31_ekrnv"]
 [ext_resource type="PackedScene" uid="uid://c3r8rmlljj46s" path="res://inventory.tscn" id="32_137x0"]
-[ext_resource type="Texture2D" uid="uid://jlwn7ofnf0xh" path="res://main_menu_src/btns/pause.png" id="33_pfc8a"]
+[ext_resource type="Texture2D" uid="uid://cd7hu06ulws75" path="res://main_menu_src/btns/pause.png" id="33_pfc8a"]
 [ext_resource type="PackedScene" uid="uid://sd71wqcrlkmb" path="res://key.tscn" id="33_rx2pm"]
-[ext_resource type="Texture2D" uid="uid://cdtgujpryj05x" path="res://main_menu_src/btns/pause hover.png" id="34_y7d77"]
-[ext_resource type="Texture2D" uid="uid://d3vrug36m3xu0" path="res://main_menu_src/btns/inventory.png" id="35_185mw"]
-[ext_resource type="Texture2D" uid="uid://i8ustflytg5w" path="res://main_menu_src/btns/inventory hover.png" id="36_frl4l"]
+[ext_resource type="Texture2D" uid="uid://dn3rtytufumpc" path="res://main_menu_src/btns/pause hover.png" id="34_y7d77"]
+[ext_resource type="Texture2D" uid="uid://dn001m3fis35r" path="res://main_menu_src/btns/inventory.png" id="35_185mw"]
+[ext_resource type="Texture2D" uid="uid://d03ry7xr7rkxw" path="res://main_menu_src/btns/inventory hover.png" id="36_frl4l"]
+[ext_resource type="PackedScene" uid="uid://8bi7n2mbcay7" path="res://piggy.tscn" id="42_ejsds"]
+[ext_resource type="PackedScene" uid="uid://c1rwvni44r6re" path="res://Poison.tscn" id="42_k87ak"]
+[ext_resource type="PackedScene" uid="uid://ck2m8ee5i4xq" path="res://Coin.tscn" id="42_to3s7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjpq4"]
 albedo_texture = ExtResource("2_qul0i")
@@ -271,19 +274,6 @@ size = Vector3(0.00709534, 0.303129, 0.273438)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vifbq"]
 size = Vector3(1, 0.381836, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g38hk"]
-albedo_color = Color(0.876991, 0.99424, 0.784549, 1)
-metallic = 0.7
-metallic_specular = 0.15
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_77lwv"]
-albedo_color = Color(0.622293, 0.438718, 0.122542, 1)
-metallic = 0.25
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_ths3p"]
-height = 0.181846
-radius = 0.0787887
 
 [sub_resource type="BoxMesh" id="BoxMesh_qgatn"]
 
@@ -903,6 +893,12 @@ material_override = SubResource("StandardMaterial3D_4br1p")
 mesh = SubResource("BoxMesh_kemqh")
 skeleton = NodePath("../../../Bedroom/StaticBody3D")
 
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Bathroom/walls"]
+transform = Transform3D(5.39405, 0, -1.64846e-12, 0, 35.0309, 0, 4.12115e-13, 0, 20.9549, -76.5787, 10.0177, 17.2296)
+material_override = SubResource("StandardMaterial3D_4br1p")
+mesh = SubResource("BoxMesh_kemqh")
+skeleton = NodePath("../../../Bedroom/StaticBody3D")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bathroom/walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.5672, 13.5427, 30.0595)
 shape = SubResource("BoxShape3D_4exmj")
@@ -944,7 +940,7 @@ shape = SubResource("BoxShape3D_wdr76")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.61, -6.40283, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Bathroom/StaticBody3D4"]
-transform = Transform3D(17.9472, 0, 0, 0, 68.5329, 0, 0, 0, 50.4498, -132.556, 36.342, 17.6088)
+transform = Transform3D(17.9472, 0, 0, 0, 68.5329, 0, 0, 0, 50.4498, -132.556, -0.47073, 17.6088)
 mesh = SubResource("BoxMesh_v02qu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bathroom/StaticBody3D4"]
@@ -1217,17 +1213,8 @@ shape = SubResource("BoxShape3D_vifbq")
 [node name="frame" parent="Bedroom/StaticBody3D3" instance=ExtResource("29_rvs0e")]
 transform = Transform3D(-1.1048, 7.10543e-15, -9.6585e-08, 7.10543e-15, -1.1048, -9.6585e-08, -9.6585e-08, -9.6585e-08, 1.1048, -0.701507, 3.2628, 2.77384)
 
-[node name="StaticBody3D4" type="StaticBody3D" parent="Bedroom"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Bedroom/StaticBody3D4"]
-transform = Transform3D(0.0595506, 0, 0, 0, 0.0595506, 0, 0, 0, 0.0595506, 1.89268, -0.971914, -3.24667)
-mesh = ExtResource("29_12sqp")
-surface_material_override/0 = SubResource("StandardMaterial3D_g38hk")
-surface_material_override/2 = SubResource("StandardMaterial3D_77lwv")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bedroom/StaticBody3D4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8959, -0.900945, -3.20218)
-shape = SubResource("CylinderShape3D_ths3p")
+[node name="frame3" parent="Bedroom/StaticBody3D3" instance=ExtResource("29_yhvqv")]
+transform = Transform3D(1.1048, 0, 0, 0, 1.1048, 0, 0, 0, 1.1048, 0.582933, -2.82588, 2.77384)
 
 [node name="Ceiling" type="Node3D" parent="."]
 visible = false
@@ -1243,14 +1230,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.9171, 37.3146, 27.9597)
 shape = SubResource("BoxShape3D_gqvhv")
 
 [node name="main_character" parent="." instance=ExtResource("29_iw74a")]
-transform = Transform3D(-0.999042, 0.0437589, 0.000663193, 0.0437589, 0.999042, 0, -0.000662558, 2.90206e-05, -1, -142.257, 11.9021, -59.5767)
+transform = Transform3D(-0.999042, 0.0437589, 0.000663193, 0.0437589, 0.999042, 0, -0.000662558, 2.90206e-05, -1, -37.8958, 19.3927, -39.8029)
 
 [node name="RayCastToDoor" type="RayCast3D" parent="main_character"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.363481, 0.300617)
 target_position = Vector3(0, 0, 0.9)
 
 [node name="enemy_character" parent="." instance=ExtResource("17_3w8bp")]
-transform = Transform3D(-0.999968, 0, 0.00794108, 0, 1, 0, -0.00794108, 0, -0.999968, -133.389, 4.93434, -32.0633)
+transform = Transform3D(-1.16496, 0, 0.00925135, 0, 1.165, 0, -0.00925135, 0, -1.16496, -133.389, 4.93434, -32.0633)
 main_character = NodePath("../main_character")
 
 [node name="rat" type="CharacterBody3D" parent="."]
@@ -1270,7 +1257,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.215672, 1.94598, 0.363068)
 shape = SubResource("BoxShape3D_w2n2v")
 
 [node name="Key" parent="." instance=ExtResource("33_rx2pm")]
-transform = Transform3D(0.980584, -7.45058e-09, 0.1961, 0.166975, -0.524387, -0.834947, 0.102832, 0.85148, -0.514206, -52.5447, 6.41647, -6.80026)
+transform = Transform3D(0.387331, -0.0160438, 0.0757796, 0.0659551, -0.13433, -0.365555, 0.0406186, 0.371111, -0.129043, -35.5386, 13.0653, -29.9924)
 
 [node name="Blur" parent="." instance=ExtResource("30_nmfd6")]
 mouse_filter = 2
@@ -1315,14 +1302,14 @@ texture_hover = ExtResource("36_frl4l")
 [node name="InteractionHint" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.421
+anchor_left = 0.279
 anchor_top = 0.415
 anchor_right = 0.689
-anchor_bottom = 0.5
-offset_left = -484.992
+anchor_bottom = 0.605
+offset_left = -321.408
 offset_top = -268.92
 offset_right = -753.728
-offset_bottom = -301.0
+offset_bottom = -369.04
 
 [node name="NotificationLabel" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 0
@@ -1336,6 +1323,25 @@ offset_left = 5.0
 offset_top = 74.0
 offset_right = 321.0
 offset_bottom = 365.0
+
+[node name="DialogText" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 277.0
+offset_top = 95.0
+offset_right = 830.0
+offset_bottom = 309.0
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Piggy" parent="." instance=ExtResource("42_ejsds")]
+transform = Transform3D(-6.27741, 0, -1.52505, 0, 6.46, 0, 1.52505, 0, -6.27741, -35.0372, 11.8487, -30.7158)
+
+[node name="Coin" parent="." instance=ExtResource("42_to3s7")]
+transform = Transform3D(0.852863, -0.0015765, 0.522133, 0.273152, 0.853588, -0.443594, -0.444987, 0.520947, 0.728424, -159.486, 12.4948, -20.88)
+
+[node name="Poison" parent="." instance=ExtResource("42_k87ak")]
+transform = Transform3D(0.549672, 0, 0, 0, 0.549672, 0, 0, 0, 0.549672, -158.924, 6.38769, -42.3171)
 
 [connection signal="area_entered" from="rat/rat/Area3D" to="rat/rat/Area3D" method="_on_area_entered"]
 [connection signal="pressed" from="CanvasLayer/Control/pause" to="." method="_on_pause_pressed"]
