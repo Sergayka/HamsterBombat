@@ -44,8 +44,8 @@ albedo_color = Color(0.980392, 0.768627, 0, 1)
 metallic = 0.95
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_786rj"]
-radius = 0.664967
-height = 2.68386
+radius = 1.02818
+height = 3.13698
 
 [node name="StaticBody3D" type="StaticBody3D"]
 script = ExtResource("1_5noc2")

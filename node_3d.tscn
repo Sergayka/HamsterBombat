@@ -252,7 +252,7 @@ size = Vector3(1.14795, 2.54395, 1.46582)
 size = Vector3(0.409724, 0.0767241, 0.669076)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3bw1c"]
-size = Vector3(0.403748, 0.300506, 0.0229492)
+size = Vector3(0.403748, 0.91815, 0.0229492)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gd27j"]
 size = Vector3(0.0224609, 0.442016, 0.678284)
@@ -293,11 +293,48 @@ script = ExtResource("1_kqbc8")
 metadata/_edit_horizontal_guides_ = [14.0]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.7357, 25.1488, -21.3154)
-light_energy = 2.264
-light_indirect_energy = 6.435
-light_volumetric_fog_energy = 7.7
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.7357, 23.4144, -33.8213)
+light_color = Color(1, 1, 0.670588, 1)
+light_energy = 1.941
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 0.0
 omni_range = 138.197
+omni_attenuation = 0.254
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.7357, 13.1186, 14.0575)
+light_color = Color(1, 1, 0.670588, 1)
+light_energy = 1.941
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 0.0
+omni_range = 138.197
+omni_attenuation = 0.254
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.6267, 25.0297, -41.7872)
+light_color = Color(1, 1, 0.670588, 1)
+light_energy = 0.545
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 0.0
+omni_range = 53.414
+omni_attenuation = 0.254
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -142.858, 24.1911, -41.7872)
+light_color = Color(1, 1, 0.670588, 1)
+light_energy = 1.03
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 0.0
+omni_range = 53.414
+omni_attenuation = 0.254
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -146.821, 12.359, -38.7598)
+light_color = Color(1, 1, 0.670588, 1)
+light_energy = 1.03
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 0.0
+omni_range = 53.414
 omni_attenuation = 0.254
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -867,6 +904,7 @@ shape = SubResource("BoxShape3D_b6nvb")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Bathroom"]
 transform = Transform3D(-0.0492, 0.0305365, 0.998322, -0.157594, 0.986775, -0.0379499, -0.986277, -0.159197, -0.0437369, -2.58356, 16.5224, 14.2858)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Bathroom"]
 transform = Transform3D(2.28109, 0, 0, 0, 2.28109, 0, 0, 0, 2.28109, -99.3424, 1.8167, 17.1267)
@@ -929,7 +967,15 @@ shape = SubResource("BoxShape3D_2ohkk")
 [node name="StaticBody3D3" type="StaticBody3D" parent="Bathroom"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Bathroom/StaticBody3D3"]
-transform = Transform3D(17.9472, 0, 0, 0, 68.5329, 0, 0, 0, 50.4498, -132.556, 36.342, 13.1678)
+transform = Transform3D(-1.40401e-07, 71.108, 0, -3.212, -3.10823e-06, 0, 0, 0, 70.063, -62.0946, 25.2482, 76.4535)
+mesh = SubResource("BoxMesh_v02qu")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Bathroom/StaticBody3D3"]
+transform = Transform3D(-1.40401e-07, 71.108, 0, -3.212, -3.10823e-06, 0, 0, 0, 70.063, -62.0946, 25.2482, 25.3148)
+mesh = SubResource("BoxMesh_v02qu")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Bathroom/StaticBody3D3"]
+transform = Transform3D(-1.40401e-07, 71.108, 0, -3.212, -3.10823e-06, 0, 0, 0, 70.063, -62.0946, 25.2482, -40.6791)
 mesh = SubResource("BoxMesh_v02qu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bathroom/StaticBody3D3"]
@@ -1127,7 +1173,7 @@ shape = SubResource("BoxShape3D_8rjp1")
 [node name="Cage" type="StaticBody3D" parent="Bedroom"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Bedroom/Cage"]
-transform = Transform3D(-0.0333233, 0, -0.0493128, 0, 0.0595164, 0, 0.0493128, 0, -0.0333233, 5.15296, 0.0483274, -0.196934)
+transform = Transform3D(-0.0447921, 0, -0.0662847, 0, 0.08, 0, 0.0662847, 0, -0.0447921, 5.15296, 0.00412107, -0.196934)
 rotation_order = 0
 mesh = ExtResource("28_bb1ht")
 
@@ -1140,7 +1186,7 @@ transform = Transform3D(0.831324, 0, -0.555788, 0, 1, 0, 0.555788, 0, 0.831324, 
 shape = SubResource("BoxShape3D_3bw1c")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Bedroom/Cage"]
-transform = Transform3D(0.831324, -0.555701, -0.00983563, 2.98023e-08, 0.0176967, -0.999843, 0.555788, 0.831194, 0.0147117, 5.12798, 0.0959157, -0.160942)
+transform = Transform3D(0.831324, -0.555701, -0.00983563, 2.98023e-08, 0.0176967, -0.999843, 0.555788, 0.831194, 0.0147117, 5.1671, 0.0479598, -0.219456)
 shape = SubResource("BoxShape3D_3bw1c")
 
 [node name="CollisionShape3D18" type="CollisionShape3D" parent="Bedroom/Cage"]
@@ -1230,14 +1276,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.9171, 37.3146, 27.9597)
 shape = SubResource("BoxShape3D_gqvhv")
 
 [node name="main_character" parent="." instance=ExtResource("29_iw74a")]
-transform = Transform3D(-0.999042, 0.0437589, 0.000663193, 0.0437589, 0.999042, 0, -0.000662558, 2.90206e-05, -1, -37.8958, 19.3927, -39.8029)
+transform = Transform3D(-0.999042, 0.0437589, 0.000663193, 0.0437589, 0.999042, 0, -0.000662558, 2.90206e-05, -1, -141.945, 11.8728, -59.3624)
 
 [node name="RayCastToDoor" type="RayCast3D" parent="main_character"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.363481, 0.300617)
 target_position = Vector3(0, 0, 0.9)
 
 [node name="enemy_character" parent="." instance=ExtResource("17_3w8bp")]
-transform = Transform3D(-1.16496, 0, 0.00925135, 0, 1.165, 0, -0.00925135, 0, -1.16496, -133.389, 4.93434, -32.0633)
+transform = Transform3D(-1.29496, 0, 0.0102837, 0, 1.295, 0, -0.0102837, 0, -1.29496, -133.389, 4.93434, -32.0633)
 main_character = NodePath("../main_character")
 
 [node name="rat" type="CharacterBody3D" parent="."]
@@ -1257,7 +1303,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.215672, 1.94598, 0.363068)
 shape = SubResource("BoxShape3D_w2n2v")
 
 [node name="Key" parent="." instance=ExtResource("33_rx2pm")]
-transform = Transform3D(0.387331, -0.0160438, 0.0757796, 0.0659551, -0.13433, -0.365555, 0.0406186, 0.371111, -0.129043, -35.5386, 13.0653, -29.9924)
+transform = Transform3D(0.480486, -0.0199024, 0.0940051, 0.0818178, -0.166637, -0.453473, 0.0503876, 0.460365, -0.160079, -35.5386, 12.2744, -29.9924)
 
 [node name="Blur" parent="." instance=ExtResource("30_nmfd6")]
 mouse_filter = 2

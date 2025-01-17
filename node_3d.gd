@@ -121,6 +121,7 @@ func check_door_proximity():
 				is_near_piggy = true
 				if not tasks["Найти свинью"]:
 					tasks["Найти свинью"] = true
+					update_task_list()
 			elif collider and collider.name == "Poison":
 				if not tasks["Выпить волшебное зелье"]:
 					tasks["Выпить волшебное зелье"] = true
@@ -175,6 +176,8 @@ func check_door_proximity():
 					dialog_text.visible = false
 		
 		elif is_near_piggy:
+			if not tasks["Найти свинью"]:
+					tasks["Найти свинью"] = true
 			if interaction_hint:
 				interaction_hint.text = "Нажми G"
 				interaction_hint.visible = true
