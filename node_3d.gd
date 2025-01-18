@@ -13,7 +13,7 @@ var is_near_piggy = false
 
 var tasks = {
 	"Осмотреть квартиру": false,
-	"Поговорить с Крысиным": false,
+	"Поговорить с Крысой": false,
 	"Выпить волшебное зелье": false,
 	"Найти богатства": false,
 	"Найти свинью": false,
@@ -88,7 +88,7 @@ func check_raycast_collision():
 		var collider = $enemy_character/RayCastForward.get_collider()
 		if collider and collider.name == "main_character":
 			print("Collision detected with main_character! Closing game.")
-			get_tree().change_scene_to_file("res://died.tscn")
+			$died/AnimationPlayer.play('died')
 
 func add_key_to_inventory():
 	if main_character:
@@ -114,8 +114,8 @@ func check_door_proximity():
 				add_key_to_inventory()  # Добавляем ключ в инвентарь
 			elif collider and collider.name == "rat":
 				is_near_rat = true
-				if not tasks["Поговорить с Крысиным"]:
-					tasks["Поговорить с Крысиным"] = true
+				if not tasks["Поговорить с Крысой"]:
+					tasks["Поговорить с Крысой"] = true
 					update_task_list()
 			elif collider and collider.name == "Piggy":
 				is_near_piggy = true
@@ -153,7 +153,7 @@ func check_door_proximity():
 				if Input.is_action_just_pressed("open_door"):  # Создайте это действие в Input Map
 					if main_character.inventory.has("key"):  # Предполагаем, что inventory - это словарь
 						print("Opening door, closing game.")
-						get_tree().change_scene_to_file("res://win.tscn")
+						$win/AnimationPlayer.play('win')
 					else:
 						if notification_label:
 							notification_label.text = "Нужен ключ!"

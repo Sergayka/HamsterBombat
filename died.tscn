@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://xlbhhnxo7nr7"]
 
-[ext_resource type="Texture2D" uid="uid://cdhwm642lbe5p" path="res://main_menu_src/You died.png" id="1_cuv1q"]
+[ext_resource type="Texture2D" uid="uid://b0lydrj24lgoa" path="res://main_menu_src/You died.png" id="1_cuv1q"]
 
 [sub_resource type="Animation" id="Animation_2y3e2"]
 length = 0.001
@@ -54,7 +54,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1, 4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(576, 324), Vector2(0, 0), Vector2(-93, -48)]
+"values": [Vector2(1152, 648), Vector2(576, 324), Vector2(483, 276)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6fxsq"]
@@ -82,10 +82,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1132.0
-offset_top = -667.0
-offset_right = 788.0
-offset_bottom = 413.0
+offset_left = 576.0
+offset_top = 324.0
+offset_right = 2496.0
+offset_bottom = 1404.0
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_cuv1q")
 

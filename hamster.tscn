@@ -1,7 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://doosupp64mtll"]
 
-[ext_resource type="ArrayMesh" uid="uid://33aa1e8tpuhd" path="res://Hamster_01.obj" id="1_en1un"]
-
+[ext_resource type="PackedScene" uid="uid://2cdmgyo3g42m" path="res://test1.glb" id="1_ubrit"]
 
 [sub_resource type="Animation" id="Animation_l8xoi"]
 resource_name = "faliing flat"
